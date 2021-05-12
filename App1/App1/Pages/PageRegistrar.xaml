@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Pages.PageRegistrar">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Actividad agropecuaria" FontSize="Title" Padding="30,10,30,10"/>
+            <Entry x:Name="EntryActivityName"
+               Placeholder="Nombre actividad. Ej: Siembra de café."
+               VerticalOptions="Center"
+               HorizontalOptions="CenterAndExpand"
+               TabIndex="1"
+               WidthRequest="150">
+            </Entry>
+            <Button Text="Registrar"
+                Clicked="OnRegisterActivityClick"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
