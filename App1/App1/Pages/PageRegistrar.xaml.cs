@@ -20,7 +20,6 @@ namespace App1.Pages
         async void OnRegisterActivityClick(object sender, EventArgs e)
         {
             string valueText = EntryActivityName.Text;
-
         }
 
         private void GenerateQRCode(string valueText)

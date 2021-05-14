@@ -37,33 +37,32 @@ namespace App1.Dao
             ActividadProductiva a1 = new ActividadProductiva
             {
                 NombreActividadRaiz = "Siembra cebolla",
-                IdActividad = "1",
-                UltimaActualizacion = DateTime.Now.ToString()
+                IdActividad = 1,
+                UltimaActualizacion = DateTime.Now
             };
             actividades.Add(a1);
 
             actividades.Add(new ActividadProductiva
             {
                 NombreActividadRaiz = "Siembra lechuga",
-                IdActividad = "2",
-                UltimaActualizacion = DateTime.Now.ToString()
+                IdActividad = 2,
+                UltimaActualizacion = DateTime.Now
             });
 
             actividades.Add(new ActividadProductiva
             {
                 NombreActividadRaiz = "Siembra papas",
-                IdActividad = "3",
-                UltimaActualizacion = DateTime.Now.ToString()
+                IdActividad = 3,
+                UltimaActualizacion = DateTime.Now
             });
 
         }
        
         public ActividadProductiva GetInfo(string value)
         {
-            actividades.Where(a => a.NombreActividadRaiz == value.Split('|')[0] && a.IdActividad == value.Split('|')[1]).FirstOrDefault().
-                UltimaActualizacion = DateTime.Now.ToString();
+            actividades.Where(a => a.IdActividad == int.Parse(value)).FirstOrDefault().UltimaActualizacion = DateTime.Now;
 
-            return actividades.Where(a => a.NombreActividadRaiz == value.Split('|')[0] && a.IdActividad == value.Split('|')[1]).FirstOrDefault();
+            return actividades.Where(a => a.IdActividad == int.Parse(value)).FirstOrDefault();
         }
     }
 }

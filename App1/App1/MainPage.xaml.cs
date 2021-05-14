@@ -1,6 +1,7 @@
 ﻿using App1.Dao;
 using App1.Domain;
 using App1.Pages;
+using Approagro.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,7 +84,7 @@ namespace App1
 
         async void OnAddTipoActivityClick(Object sender, EventArgs e)
         {
-            //TODO: Add logic
+            await Navigation.PushAsync(new PageRegistrarTipo());
         }
 
         private async void Scanner()

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.PageRegistrarTipo">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Registrar nuevo tipo de actividad" FontSize="Large" Padding="30,10,30,10" TextColor="Black"/>
+            <Label Text="Se refiere a las actividades en las que trabaja. Por ejemplo siembra de café, siembra de papa, cría de gallinas o cerdos."
+                FontSize="Caption"
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                Padding="30,10,30,10"/>
+
+            <Label Text="Nombre" FontSize="Large" Padding="30,10,30,10" TextColor="Black"/>
+            <Entry x:Name="EntryActivityName"
+                   Placeholder="Nombre actividad. Ej: Siembra de café."
+                   FontSize="Caption"
+               VerticalOptions="StartAndExpand"
+               HorizontalOptions="Fill"
+               TabIndex="1"
+               WidthRequest="150">
+            </Entry>
+
+            <Label Text="Descripción" FontSize="Large" Padding="30,10,30,10" TextColor="Black"/>
+            <Entry x:Name="EntryActivityDescription"
+               Placeholder="Un pequeño detalle u observación para referencia."
+               FontSize="Caption"
+               VerticalOptions="StartAndExpand"
+               HorizontalOptions="Fill"
+               TabIndex="1"
+               WidthRequest="150">
+            </Entry>
+            <Button Text="Registrar"
+                Clicked="OnRegisterTypeActivityClick"
+                BackgroundColor="LightGreen"
+                FontSize="Title"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+    <!--<ListView x:Name="MyListView"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">-->
+    <!--Built in Cells
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <TextCell Text="{Binding .}" />
+        </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+    <!--Custom View Cells-->
+    <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>-->
+</ContentPage>
