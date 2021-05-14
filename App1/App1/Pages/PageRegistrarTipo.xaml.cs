@@ -1,4 +1,7 @@
-﻿using System;
+﻿using App1;
+using Approagro.Domain;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -45,6 +48,16 @@ namespace Approagro.Pages
         {
             string Name = EntryActivityName.Text;
             string Description = EntryActivityDescription.Text;
+
+            if (!string.IsNullOrWhiteSpace(Name))
+            {
+                await App.TiposActividades.SaveTipoActividadAsync(new TipoActividad
+                {
+                    Nombre = Name,
+                    Descripcion = Description
+                });
+            }
+            List<TipoActividad> list = await App.TiposActividades.GetTipoActividadesAsync();
         }
     }
 }
