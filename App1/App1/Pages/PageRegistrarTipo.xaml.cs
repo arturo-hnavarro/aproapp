@@ -51,13 +51,12 @@ namespace Approagro.Pages
 
             if (!string.IsNullOrWhiteSpace(Name))
             {
-                await App.TiposActividades.SaveTipoActividadAsync(new TipoActividad
+                await App.AproagroDB.SaveTipoActividadAsync(new TipoActividad
                 {
                     Nombre = Name,
                     Descripcion = Description
                 });
             }
-            List<TipoActividad> list = await App.TiposActividades.GetTipoActividadesAsync();
         }
     }
 }

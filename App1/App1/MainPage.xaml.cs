@@ -81,10 +81,10 @@ namespace App1
         {
             await Navigation.PushAsync(new PageRegistrar());
         }
-
-        async void OnAddTipoActivityClick(Object sender, EventArgs e)
+        
+        async void GoToSubMenuAdmin(Object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PageRegistrarTipo());
+            await Navigation.PushAsync(new PageAdministration());
         }
 
         private async void Scanner()
@@ -101,7 +101,7 @@ namespace App1
                     Navigation.PopAsync();
                     ActividadProductiva a = GetInfoFromQR(result.Text);
                     DisplayAlert("Valor Obtenido", CreateMessage(a), "OK");
-                    ScheduleMessage("APROAGRO", $"Proximo mantenimiento se acerca:\nNombreActividadRaiz: {a.NombreActividadRaiz}\nActividad: {a.IdActividad}");
+                    ScheduleMessage("APROAGRO", $"Proximo mantenimiento se acerca:\nNombreActividad: {a.NombreActividad}\nActividad: {a.IdActividad}");
                 });
             };
 
@@ -116,7 +116,7 @@ namespace App1
 
         private string CreateMessage(ActividadProductiva a)
         {
-            return "Actividad raiz: " + a.NombreActividadRaiz + ". Actividad: " + a.IdActividad + ". Ultima actualizacion: " + a.UltimaActualizacion;
+            return "Actividad raiz: " + a.NombreActividad + ". Actividad: " + a.IdActividad + ". Ultima actualizacion: " + a.UltimaActualizacion;
         }
 
     }

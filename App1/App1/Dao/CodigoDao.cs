@@ -36,7 +36,7 @@ namespace App1.Dao
         {
             ActividadProductiva a1 = new ActividadProductiva
             {
-                NombreActividadRaiz = "Siembra cebolla",
+                NombreActividad = "Siembra cebolla",
                 IdActividad = 1,
                 UltimaActualizacion = DateTime.Now
             };
@@ -44,14 +44,14 @@ namespace App1.Dao
 
             actividades.Add(new ActividadProductiva
             {
-                NombreActividadRaiz = "Siembra lechuga",
+                NombreActividad = "Siembra lechuga",
                 IdActividad = 2,
                 UltimaActualizacion = DateTime.Now
             });
 
             actividades.Add(new ActividadProductiva
             {
-                NombreActividadRaiz = "Siembra papas",
+                NombreActividad = "Siembra papas",
                 IdActividad = 3,
                 UltimaActualizacion = DateTime.Now
             });

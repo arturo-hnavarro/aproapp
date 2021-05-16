@@ -9,17 +9,17 @@ namespace App1
 {
     public partial class App : Application
     {
-        static TipoActividadDao TipoActividadService;
+        static AproagroContextService AproagroDBContext;
 
-        public static TipoActividadDao TiposActividades
+        public static AproagroContextService AproagroDB
         {
             get
             {
-                if (TipoActividadService == null)
+                if (AproagroDBContext == null)
                 {
-                    TipoActividadService = new TipoActividadDao(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TiposActividades.db3"));
+                    AproagroDBContext = new AproagroContextService(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "APROAGRO.db3"));
                 }
-                return TipoActividadService;
+                return AproagroDBContext;
             }
         }
 

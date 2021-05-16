@@ -23,12 +23,12 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>-->
-                <Button Text="Agregar tipo de actividad productiva"
-                Clicked="OnAddTipoActivityClick"/>
                 <Button Text="Agregar actividad productiva"
                 Clicked="OnAddActivityClick"/>
                 <Button Text="Escanear"
                 Clicked="OnScanClick"/>
+                <Button Text="Administración"
+                Clicked="GoToSubMenuAdmin"/>
 
                 <Label Text="Click the button below to create a local notification."
            TextColor="Red"
