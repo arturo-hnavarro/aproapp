@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.ActividadesProductivasAdd">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Registrar nueva actividad productiva" FontSize="Title" Padding="30,10,30,10" TextColor="Black"/>
+
+            <Label Text="Nombre" FontSize="Large" Padding="30,10,30,0" TextColor="Black"/>
+            <Entry x:Name="EntryActivityName"
+                   Placeholder="Nombre de la actividad. Ej: Siembra de café en finca el 'bajo'.">
+            </Entry>
+
+            <Label Text="Descripción" FontSize="Large" Padding="30,10,30,0" TextColor="Black"/>
+            <Entry x:Name="EntryActivityDescription"
+                   Placeholder="Un pequeño detalle u observación para referencia.">
+            </Entry>
+
+            <Label Text="Ubicación" FontSize="Large" Padding="30,10,30,0" TextColor="Black"/>
+            <Entry x:Name="EntryActivityLocation"
+                   Placeholder="Ubicación donde se realiza la actividad."
+                    VerticalOptions="StartAndExpand">
+            </Entry>
+
+            <Button Text="Registrar"
+                Clicked="OnRegisterActivityClick"
+                BackgroundColor="LightGreen"
+                FontSize="Title"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

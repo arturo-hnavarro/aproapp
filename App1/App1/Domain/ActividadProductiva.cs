@@ -10,7 +10,10 @@ namespace Approagro.Domain
     {
         [PrimaryKey, AutoIncrement]
         public int IdActividad { get; set; }
+        [NotNull]
         public string NombreActividad { get; set; } //ej siembra de cafe, siembra zanahorias, siembra de lechugas, Cria de cerdos, Gallinas de engorde
+        public string Descripcion { get; set; }
+        [NotNull]
         public int Fk_TipoActividad { get; set; }
 
         private TipoActividad mTipoActividad = new TipoActividad();

@@ -8,6 +8,9 @@
 
             <Button Text="Tipos de actividad productiva"
                 Clicked="OnAdministrarTiposActividades"/>
+            
+            <Button Text="Actividades productiva"
+                Clicked="OnAdministrarActividadesProductivas"/>
 
         </StackLayout>
     </ContentPage.Content>

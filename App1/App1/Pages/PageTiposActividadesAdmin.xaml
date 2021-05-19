@@ -21,8 +21,6 @@
                 Clicked="OnAddTipoActivityClick"/>
             <Button Text="Ver tipos de actividad productiva"
                 Clicked="OnShowTipoActivityClick"/>
-            
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
