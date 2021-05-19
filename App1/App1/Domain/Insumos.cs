@@ -15,12 +15,13 @@ namespace Approagro.Domain
         public double PrecioTotal { get; set; }
         public string Observacion { get; set; }
 
+        /*
         private List<Insumos> mInsumos = new List<Insumos>();
         [Ignore]
         public List<Insumos> InsumosAplicados
         {
             get { return mInsumos; }
             set { mInsumos = value; }
-        }
+        }*/
     }
 }

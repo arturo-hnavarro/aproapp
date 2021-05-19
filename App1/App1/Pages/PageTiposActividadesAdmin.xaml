@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.PageTiposActividadesAdmin">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Tipos de actividades productivas" FontSize="Title" Padding="30,10,30,10" TextColor="Black"/>
+
+            <Label FontSize="Subtitle" Padding="30,24,30,15">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                            <Span Text="Los tipos de actividades productivas son el tipo de trabajo al que se dedica. Por ejemplo: siembra de café, siembra de zanahorias, siembra de lechugas, cria de cerdos, gallinas de engorde.
+                                      "/>
+                        </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            <Button Text="Agregar tipo de actividad productiva"
+                Clicked="OnAddTipoActivityClick"/>
+            <Button Text="Ver tipos de actividad productiva"
+                Clicked="OnShowTipoActivityClick"/>
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

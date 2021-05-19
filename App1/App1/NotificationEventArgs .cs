@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace App1
+namespace Approagro
 {
     public class NotificationEventArgs : EventArgs
     {

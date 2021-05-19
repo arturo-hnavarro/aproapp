@@ -4,7 +4,7 @@
               xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App1.MainPage">
+             x:Class="Approagro.MainPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout x:Name="stackLayout">
@@ -23,13 +23,12 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>-->
+                <Button Text="Administración"
+                Clicked="GoToSubMenuAdmin"/>
                 <Button Text="Agregar actividad productiva"
                 Clicked="OnAddActivityClick"/>
                 <Button Text="Escanear"
                 Clicked="OnScanClick"/>
-                <Button Text="Administración"
-                Clicked="GoToSubMenuAdmin"/>
-
                 <Label Text="Click the button below to create a local notification."
            TextColor="Red"
            HorizontalOptions="Center"

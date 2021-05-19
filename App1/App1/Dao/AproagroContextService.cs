@@ -1,5 +1,4 @@
-﻿using App1.Domain;
-using Approagro.Domain;
+﻿using Approagro.Domain;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -72,7 +71,7 @@ namespace Approagro.Dao
                             .Where(i => i.IdActividad == id)
                             .FirstOrDefaultAsync();
 
-                ActividadProductiva.Result.TipoActividad = MapperTipoActividadAsync(ActividadProductiva.Result.Fk_TipoActividad).Result;
+                ActividadProductiva.Result.TipoActividad = GetTipoActividadAsync(ActividadProductiva.Result.Fk_TipoActividad).Result;
                 ActividadProductiva.Result.LaboresRealizadas = GetLaboresRealizadasByActividadProductiva(id).Result;
 
                 return ActividadProductiva;

@@ -6,9 +6,9 @@
         <StackLayout>
             <Label Text="Menu de administración" FontSize="Large" Padding="30,10,30,10" TextColor="Black"/>
 
-            <Button Text="Agregar tipo de actividad productiva"
-                Clicked="OnAddTipoActivityClick"/>
-           
+            <Button Text="Tipos de actividad productiva"
+                Clicked="OnAdministrarTiposActividades"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

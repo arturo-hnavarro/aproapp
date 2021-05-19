@@ -1,12 +1,6 @@
-﻿using App1;
-using Approagro.Domain;
+﻿using Approagro.Domain;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -46,17 +40,50 @@ namespace Approagro.Pages
 
         async void OnRegisterTypeActivityClick(object sender, EventArgs e)
         {
-            string Name = EntryActivityName.Text;
-            string Description = EntryActivityDescription.Text;
-
-            if (!string.IsNullOrWhiteSpace(Name))
+            try
             {
-                await App.AproagroDB.SaveTipoActividadAsync(new TipoActividad
+                string Name = EntryActivityName.Text;
+                string Description = EntryActivityDescription.Text;
+
+                if (!string.IsNullOrWhiteSpace(Name))
                 {
-                    Nombre = Name,
-                    Descripcion = Description
-                });
+                    await App.AproagroDB.SaveTipoActividadAsync(new TipoActividad
+                    {
+                        Nombre = Name,
+                        Descripcion = Description
+                    });
+                }
+                else
+                {
+                    await DisplayAlert("Registrar tipo de actividad", "El nombre del tipo de actividad es requerido", "Aceptar");
+                }
+            }
+            catch
+            {
+                await DisplayAlert("Error al registrar tipo de actividad", "Ocurrió un error al registrar el tipo de actividad. Por favor intente de nuevo", "Intentar de nuevo");
             }
         }
+
+        async void OnShowTipoActivityClick(object sender, EventArgs e)
+        {
+            try
+            {
+
+                
+                
+                 /*   await App.AproagroDB.SaveTipoActividadAsync(new TipoActividad
+                    {
+                        Nombre = Name.Trim(),
+                        Descripcion = Description.Trim()
+                    });
+                
+                */
+            }
+            catch
+            {
+            }
+        }
+
+        
     }
 }

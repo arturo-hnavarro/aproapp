@@ -12,6 +12,7 @@ namespace Approagro.Domain
         public int FK_ActividadProductiva { get; set; }
         public DateTime Fecha { get; set; }
         public string Observaciones { get; set; }
+
         private List<Insumos> mInsumos = new List<Insumos>();
         [Ignore]
         public List<Insumos> Insumos

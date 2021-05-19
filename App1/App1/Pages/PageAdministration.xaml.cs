@@ -17,9 +17,13 @@ namespace Approagro.Pages
             InitializeComponent();
         }
 
-        async void OnAddTipoActivityClick(Object sender, EventArgs e)
+        async void OnAdministrarTiposActividades(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PageRegistrarTipo());
+            await Navigation.PushAsync(new PageTiposActividadesAdmin());
+        }
+        async void OnShowTipoActivityClick(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PageTiposActividadesAdmin());
         }
     }
 }

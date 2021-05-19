@@ -1,17 +1,11 @@
-﻿using App1.Dao;
-using App1.Domain;
-using App1.Pages;
-using Approagro.Pages;
+﻿using Approagro.Pages;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
+using Approagro.Domain;
+using Approagro.Dao;
 
-namespace App1
+namespace Approagro
 {
     public partial class MainPage : ContentPage
     {

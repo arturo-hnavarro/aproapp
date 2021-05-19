@@ -1,11 +1,9 @@
-﻿using App1.Dao;
-using Approagro.Dao;
+﻿using Approagro.Dao;
 using System;
 using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace App1
+namespace Approagro
 {
     public partial class App : Application
     {

@@ -6,10 +6,10 @@ using ZXing;
 //using Android.Graphics;
 using ZXing.Net.Mobile.Forms;
 using Xamarin.Forms;
-using App1.Domain;
 using System.Linq;
+using Approagro.Domain;
 
-namespace App1.Dao
+namespace Approagro.Dao
 {
     public class CodigoDao
     {

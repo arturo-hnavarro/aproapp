@@ -4,14 +4,12 @@ using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using AndroidX.Core/*.App*/;
-using App1.Droid;
-using App1;
 using Xamarin.Forms;
 using AndroidApp = Android.App.Application;
 using Android.Support.V4.App;
 
-[assembly: Dependency(typeof(App1.Droid.AndroidNotificationManager))]
-namespace App1.Droid
+[assembly: Dependency(typeof(Approagro.Droid.AndroidNotificationManager))]
+namespace Approagro.Droid
 {
     public class AndroidNotificationManager : INotificationManager
     {
