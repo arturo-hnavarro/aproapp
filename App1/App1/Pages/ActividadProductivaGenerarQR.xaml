@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Approagro.Pages.ActividadProductivaGenerarQR">
+             x:Class="Approagro.Pages.ActividadProductivaGenerarQR"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:zxingcommon="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             Title="Código QR"
+             BackgroundColor="LightBlue">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                       <zxing:ZXingBarcodeImageView x:Name="QR"
+                                         WidthRequest="500"
+                                         HeightRequest="500">
+                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                    <zxingcommon:EncodingOptions Height="500" Width="500" />
+                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+            </zxing:ZXingBarcodeImageView>
+
+            <Button Text="Exportar código"
+                Clicked="OnExportarClick"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

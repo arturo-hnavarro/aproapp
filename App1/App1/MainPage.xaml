@@ -13,16 +13,6 @@
                 </Frame>
                 <Image Source="agricultor.jpg" />
                 <Label Text="Menu principal" FontSize="Title" Padding="30,10,30,10" TextColor="Black"/>
-                <!--<Label FontSize="16" Padding="30,24,30,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>-->
                 <Button Text="Administración"
                 Clicked="GoToSubMenuAdmin"/>
                 <Button Text="Agregar actividad productiva"
