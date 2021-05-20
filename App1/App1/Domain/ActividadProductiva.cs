@@ -1,5 +1,4 @@
-﻿using Approagro.Domain;
-using SQLite;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +9,7 @@ namespace Approagro.Domain
     {
         [PrimaryKey, AutoIncrement]
         public int IdActividad { get; set; }
-        [NotNull]
+        [NotNull, Unique]
         public string NombreActividad { get; set; } //ej siembra de cafe, siembra zanahorias, siembra de lechugas, Cria de cerdos, Gallinas de engorde
         public string Descripcion { get; set; }
         [NotNull]

@@ -1,4 +1,5 @@
-﻿using QRCoder;
+﻿using Approagro.Domain;
+using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,15 +17,15 @@ namespace Approagro.Pages
     public partial class ActividadProductivaGenerarQR : ContentPage
     {
         
-        private readonly string QRStringValue = "APROAGRO|ACTIVIDAD|";
+        private readonly string QRStringValue = "APROAGRO|";
         public ActividadProductivaGenerarQR()
         {
             InitializeComponent();
         }
-        public ActividadProductivaGenerarQR(int id)
+        public ActividadProductivaGenerarQR(ActividadProductiva actividadProductiva)
         {
             InitializeComponent();
-            QR.BarcodeValue = QRStringValue + id;
+            QR.BarcodeValue = $"{QRStringValue}{actividadProductiva.NombreActividad}|{actividadProductiva.IdActividad}";
             //https://www.youtube.com/watch?v=Kkub8wWf6HA
         }
         /*protected override async void OnAppearing()

@@ -2,6 +2,7 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Approagro.Dao
     public class AproagroContextService
     {
         readonly SQLiteAsyncConnection database;
-        
+
 
         public AproagroContextService(string dbPath)
         {
@@ -76,24 +77,32 @@ namespace Approagro.Dao
 
                 return ActividadProductiva;
             }
-            catch 
+            catch
             {
                 return null;
             }
         }
 
-        public Task<int> SaveActividadProductivaAsync(ActividadProductiva ActividadProductiva)
+        public Task<ActividadProductiva> SaveActividadProductivaAsync(ActividadProductiva ActividadProductiva)
         {
+            int rows = -1;
             if (ActividadProductiva.IdActividad != 0)
             {
                 // Update an existing ActividadProductiva.
-                return database.UpdateAsync(ActividadProductiva);
+                rows = database.UpdateAsync(ActividadProductiva).Result;
             }
             else
             {
                 // Save a new ActividadProductiva.
-                return database.InsertAsync(ActividadProductiva);
+                rows = database.InsertAsync(ActividadProductiva).Result;
             }
+
+            if (rows != -1)
+            {
+                return database.Table<ActividadProductiva>().Where(i => i.NombreActividad == ActividadProductiva.NombreActividad)
+                        .FirstOrDefaultAsync();
+            }
+            return null;
         }
 
         public Task<int> DeleteActividadProductivaAsync(ActividadProductiva ActividadProductiva)
@@ -159,7 +168,7 @@ namespace Approagro.Dao
             var labores = database.Table<LaboresRealizadas>()
                             .Where(i => i.FK_ActividadProductiva == id)
                             .ToListAsync();
-            labores.Result.ForEach(x => x.Insumos = GetInsumosByLaborRealizada(x.Id).Result ); //Add insumos used by specific labor
+            labores.Result.ForEach(x => x.Insumos = GetInsumosByLaborRealizada(x.Id).Result); //Add insumos used by specific labor
             return labores;
         }
         #endregion

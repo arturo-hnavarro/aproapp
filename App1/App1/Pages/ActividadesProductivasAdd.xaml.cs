@@ -20,16 +20,15 @@ namespace Approagro.Pages
 
         async void OnRegisterActivityClick(object sender, EventArgs e)
         {
-            int id = -1;
             try
             {
-                id = await App.AproagroDB.SaveActividadProductivaAsync(Mapper());
-                if (id != -1)
+                ActividadProductiva result = await App.AproagroDB.SaveActividadProductivaAsync(Mapper());
+                if (result != null)
                 {
                     bool answer = await DisplayAlert("Actividad registrada", "¿Desea generar código QR?", "Sí", "Después");
                     if (answer)
                     {
-                        await Navigation.PushAsync(new ActividadProductivaGenerarQR(id));
+                        await Navigation.PushAsync(new ActividadProductivaGenerarQR(result));
                     }
                 }
             }
