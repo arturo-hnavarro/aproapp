@@ -9,13 +9,18 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <zxing:ZXingBarcodeImageView x:Name="QR"
-                                         WidthRequest="500"
-                                         HeightRequest="500">
-                    <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                        <zxingcommon:EncodingOptions Height="500" Width="500" />
-                    </zxing:ZXingBarcodeImageView.BarcodeOptions>
-                </zxing:ZXingBarcodeImageView>
+                <StackLayout x:Name="QRWrapper">
+                    <zxing:ZXingBarcodeImageView x:Name="QR"
+                                         WidthRequest="450"
+                                         HeightRequest="450">
+                        <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                            <zxingcommon:EncodingOptions Height="450" Width="450" />
+                        </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                    </zxing:ZXingBarcodeImageView>
+
+                    <Label x:Name="Label_QR_Nombre" FontSize="Medium" Padding="1,2,3,4" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="Label_QR_Ubicacion" FontSize="Medium" Padding="1,2,3,4"  TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
 
                 <Button Text="Exportar código"
                 Clicked="OnExportarClick"/>

@@ -33,6 +33,8 @@ namespace Approagro.Pages
         private void GenerateQR()
         {
             QR.BarcodeValue = $"{QRStringValue}{actividad.NombreActividad}|{actividad.IdActividad}";
+            Label_QR_Nombre.Text = $"Actividad: {actividad.NombreActividad}";
+            Label_QR_Ubicacion.Text = $"Ubicación: {actividad.Ubicacion}";
         }
         void OnExportarClick(object sender, EventArgs e)
         {
