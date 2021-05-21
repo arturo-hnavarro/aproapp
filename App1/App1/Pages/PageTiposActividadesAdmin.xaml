@@ -4,23 +4,29 @@
              x:Class="Approagro.Pages.PageTiposActividadesAdmin">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Tipos de actividades productivas" FontSize="Title" Padding="30,10,30,10" TextColor="Black"/>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Tipos de actividades productivas" FontSize="Title"  TextColor="Black"
+                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
 
-            <Label FontSize="Subtitle" Padding="30,24,30,15">
+                <Label FontSize="Subtitle" Padding="30,24,30,15" HorizontalTextAlignment="Start"> 
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                            <Span Text="Los tipos de actividades productivas son el tipo de trabajo al que se dedica. Por ejemplo: siembra de café, siembra de zanahorias, siembra de lechugas, cria de cerdos, gallinas de engorde.
+                                <Span Text="Los tipos de actividades productivas son el tipo de trabajo al que se dedica. Por ejemplo: siembra de café, siembra de zanahorias, siembra de lechugas, cria de cerdos, gallinas de engorde.
                                       "/>
-                        </FormattedString.Spans>
+                            </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-
+            </StackLayout>
+            <!--Body-->
+            <StackLayout Margin="{StaticResource PageMargin}">
             <Button Text="Agregar tipo de actividad productiva"
                 Clicked="OnAddTipoActivityClick"/>
             <Button Text="Ver tipos de actividad productiva"
                 Clicked="OnShowTipoActivityClick"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

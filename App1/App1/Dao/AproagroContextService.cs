@@ -31,12 +31,18 @@ namespace Approagro.Dao
 
         public Task<TipoActividad> GetTipoActividadAsync(int id)
         {
-            // Get a specific TipoActividad.
+            // Get a specific TipoActividad by id.
             return database.Table<TipoActividad>()
                             .Where(i => i.IdActividad == id)
                             .FirstOrDefaultAsync();
         }
-
+        public Task<TipoActividad> GetTipoActividadAsync(string name)
+        {
+            // Get a specific TipoActividad by name.
+            return database.Table<TipoActividad>()
+                            .Where(i => i.Nombre == name)
+                            .FirstOrDefaultAsync();
+        }
         public Task<int> SaveTipoActividadAsync(TipoActividad TipoActividad)
         {
             if (TipoActividad.IdActividad != 0)

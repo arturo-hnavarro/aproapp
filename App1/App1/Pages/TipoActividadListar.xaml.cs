@@ -46,7 +46,7 @@ namespace Approagro.Pages
             if (MyListView.SelectedItem != null)
             {
                 TipoActividad actividad = (TipoActividad) MyListView.SelectedItem;
-                await DisplayAlert("Message", actividad.Descripcion, "Aceptar");
+                await DisplayAlert("Descripción", actividad.Descripcion, "Aceptar");
             }
             
         }

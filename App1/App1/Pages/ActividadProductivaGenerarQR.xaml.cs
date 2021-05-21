@@ -83,13 +83,17 @@ namespace Approagro.Pages
         /// <summary>
         /// Share the QR code generated
         /// </summary>
-        private void ShareQR()
+        private async void ShareQR()
         {
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QRCode_temp.jpg");
-            //TODO: implementar logica
+            await Share.RequestAsync(new ShareFileRequest
+            {
+                Title= "Código QR",
+                File = new ShareFile(path)
+            });
         }
 
-        private void CreateAndShareQR()
+        private async void CreateAndShareQR()
         {
             try
             {

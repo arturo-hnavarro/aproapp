@@ -30,6 +30,8 @@ namespace Approagro.Pages
                         Nombre = Name,
                         Descripcion = Description
                     });
+                    await DisplayAlert("Registrar tipo de actividad", "La actividad se registró correctamente.", "Aceptar");
+                    EntryActivityName.Text = ""; EntryActivityDescription.Text ="";
                 }
                 else
                 {

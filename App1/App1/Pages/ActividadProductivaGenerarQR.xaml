@@ -7,17 +7,19 @@
              Title="Código QR"
              BackgroundColor="LightBlue">
     <ContentPage.Content>
-        <StackLayout>
-                       <zxing:ZXingBarcodeImageView x:Name="QR"
+        <ScrollView>
+            <StackLayout>
+                <zxing:ZXingBarcodeImageView x:Name="QR"
                                          WidthRequest="500"
                                          HeightRequest="500">
-                <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                    <zxingcommon:EncodingOptions Height="500" Width="500" />
-                </zxing:ZXingBarcodeImageView.BarcodeOptions>
-            </zxing:ZXingBarcodeImageView>
+                    <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                        <zxingcommon:EncodingOptions Height="500" Width="500" />
+                    </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                </zxing:ZXingBarcodeImageView>
 
-            <Button Text="Exportar código"
+                <Button Text="Exportar código"
                 Clicked="OnExportarClick"/>
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
