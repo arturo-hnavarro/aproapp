@@ -15,7 +15,7 @@
             <!--Body-->
             <ScrollView VerticalScrollBarVisibility="Always">
                 <StackLayout Margin="{StaticResource PageMargin}">
-                    <Label Text="Menu principal" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" TextColor="Black"/>
+                    <Label Text="Menu principal" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" />
                     <Button Text="Administración"
                 Clicked="GoToSubMenuAdmin"/>
                 <Button Text="Agregar actividad productiva"

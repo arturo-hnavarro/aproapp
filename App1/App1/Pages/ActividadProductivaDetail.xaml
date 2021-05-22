@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.ActividadProductivaDetail">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Actividad productiva" HorizontalTextAlignment="Center" FontSize="Title"/>
+            </StackLayout>
+            <!--Body-->
+            <ScrollView>
+                <StackLayout Margin="{StaticResource PageMargin}">
+                    <Label Text="Nombre" />
+                    <Entry x:Name="EntryActivityName" Placeholder="Nombre de la actividad. Ej: Siembra de café en finca el 'bajo'."/>
+
+                    <Label Text="Descripción" />
+                    <Entry x:Name="EntryActivityDescription" Placeholder="Un pequeño detalle u observación para referencia."/>
+
+                    <Label Text="Ubicación" />
+                    <Entry x:Name="EntryActivityLocation"/>
+
+                    <Label Text="Tipo de actividad" />
+                    <Entry x:Name="EntryTipoActividad" />
+
+                    <Label Text="Fecha última actualización" />
+                    <DatePicker x:Name="ActivityUltimaActualizacion"/>
+
+                    <Label Text="Fecha próxima actualización" />
+                    <DatePicker x:Name="ActivityProximaActualizacion"/>
+
+                    <Button Text="Labores realizadas" Clicked="ToListLabores" FontSize="Default"/>
+                    <Button Text="Enfermedades registradas" Clicked="ToListEnfermedades" FontSize="Default"/>
+
+                </StackLayout>
+            </ScrollView>
+            <!--Footer-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Button Text="Registrar"
+                FontSize="Title"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

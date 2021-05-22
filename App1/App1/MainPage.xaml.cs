@@ -37,7 +37,7 @@ namespace Approagro
             notificationNumber++;
             string title = $"Local Notification #{notificationNumber}";
             string message = $"You have now received {notificationNumber} notifications!";
-            notificationManager.SendNotification(title, message, DateTime.Now.AddSeconds(10));
+            notificationManager.SendNotification(title, message, DateTime.Now.AddSeconds(600));
         }
 
         void ScheduleMessage(string title, string message)
@@ -93,19 +93,25 @@ namespace Approagro
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     Navigation.PopAsync();
-                    ActividadProductiva a = GetInfoFromQR(result.Text);
-                    DisplayAlert("Valor Obtenido", CreateMessage(a), "OK");
-                    ScheduleMessage("APROAGRO", $"Proximo mantenimiento se acerca:\nNombreActividad: {a.NombreActividad}\nActividad: {a.IdActividad}");
+                    GetInfoFromQR(result.Text);
+                    //ScheduleMessage("APROAGRO", $"Proximo mantenimiento se acerca:\nNombreActividad: {a.NombreActividad}\nActividad: {a.IdActividad}");
                 });
             };
 
             await Navigation.PushAsync(scannerPage);
         }
 
-        private ActividadProductiva GetInfoFromQR(string value)
+        async void GetInfoFromQR(string value)
         {
-            CodigoDao codigos = new CodigoDao();
-            return codigos.GetInfo(value);
+            try
+            {
+                CodigoDao codigos = new CodigoDao();
+                await Navigation.PushAsync(new ActividadProductivaDetail(codigos.GetInfo(value)));
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ups, no fue posible realizar la operación", ex.Message, "Aceptar");
+            }
         }
 
         private string CreateMessage(ActividadProductiva a)

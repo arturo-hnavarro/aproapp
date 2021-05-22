@@ -13,56 +13,22 @@ namespace Approagro.Dao
 {
     public class CodigoDao
     {
-        public static List<ActividadProductiva> actividades = new List<ActividadProductiva>();
 
-        //public static ScanQRCode(string valueText)
-        //{
-        //    //BarcodeWriter br = new BarcodeWriter();
-        //    //Bitmap bm = new Bitmap(br.Encode(valueText));
-        //    var ScannerPage = new ZXingScannerPage();
-
-        //    ScannerPage.Title = "Lector de QR";
-        //    ScannerPage.OnScanResult += (result) =>
-        //    {
-        //        ScannerPage.IsScanning = false;
-        //        Device.BeginInvokeOnMainThread(() =>
-        //        {
-        //            Navigation.PopAsyn
-        //        });
-        //    }
-        //}
-
-        public void AgregarValoresDePrueba()
-        {
-            ActividadProductiva a1 = new ActividadProductiva
-            {
-                NombreActividad = "Siembra cebolla",
-                IdActividad = 1,
-                UltimaActualizacion = DateTime.Now
-            };
-            actividades.Add(a1);
-
-            actividades.Add(new ActividadProductiva
-            {
-                NombreActividad = "Siembra lechuga",
-                IdActividad = 2,
-                UltimaActualizacion = DateTime.Now
-            });
-
-            actividades.Add(new ActividadProductiva
-            {
-                NombreActividad = "Siembra papas",
-                IdActividad = 3,
-                UltimaActualizacion = DateTime.Now
-            });
-
-        }
-       
         public ActividadProductiva GetInfo(string value)
         {
-            actividades.Where(a => a.IdActividad == int.Parse(value)).FirstOrDefault().UltimaActualizacion = DateTime.Now;
-
-            return actividades.Where(a => a.IdActividad == int.Parse(value)).FirstOrDefault();
+            ActividadProductiva actividadProductiva;
+            try
+            {
+                string IdActividad = value.Split('|')[2];
+                actividadProductiva = App.AproagroDB.GetActividadProductivaAsync(Int32.Parse(IdActividad)).Result;
+                if (actividadProductiva == null)
+                    throw new Exception();
+            }
+            catch
+            {
+                throw new Exception("No fue posible obtener información de la actividad productiva");
+            }
+            return actividadProductiva;
         }
     }
 }

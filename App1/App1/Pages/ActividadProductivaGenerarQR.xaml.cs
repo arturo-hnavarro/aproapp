@@ -14,6 +14,7 @@ namespace Approagro.Pages
     {
 
         private readonly string QRStringValue = "APROAGRO|";
+        private readonly string FileTmpName = "APROAGRO_QRCode.jpg";
         private ActividadProductiva actividad;
         public ActividadProductivaGenerarQR()
         {
@@ -58,7 +59,7 @@ namespace Approagro.Pages
             var screenshot = await Screenshot.CaptureAsync();
             var stream = await screenshot.OpenReadAsync();
 
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QRCode_temp.jpg");
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), FileTmpName);
             using (var fileStream = File.Create(path))
             {
                 stream.Seek(0, SeekOrigin.Begin);
@@ -73,12 +74,19 @@ namespace Approagro.Pages
         /// </summary>
         async void PartialCaptureScreenshot()
         {
-            var screenshotStream = await QR.CaptureImageAsync();
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QRCode_temp.jpg");
-            using (var fileStream = File.Create(path))
+            try
             {
-                screenshotStream.Seek(0, SeekOrigin.Begin);
-                screenshotStream.CopyTo(fileStream);
+                var screenshotStream = await QR.CaptureImageAsync();
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), FileTmpName);
+                using (var fileStream = File.Create(path))
+                {
+                    screenshotStream.Seek(0, SeekOrigin.Begin);
+                    screenshotStream.CopyTo(fileStream);
+                }
+            }
+            catch
+            {
+                throw new Exception("No fue posible generar el código QR");
             }
         }
 
@@ -87,12 +95,18 @@ namespace Approagro.Pages
         /// </summary>
         private async void ShareQR()
         {
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QRCode_temp.jpg");
-            await Share.RequestAsync(new ShareFileRequest
+            try
             {
-                Title= "Código QR",
-                File = new ShareFile(path)
-            });
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), FileTmpName);
+                await Share.RequestAsync(new ShareFileRequest
+                {
+                    Title = "Código QR",
+                    File = new ShareFile(path)
+                });
+            }catch
+            {
+                throw new Exception("No fue posible exportar el código QR");
+            }
         }
 
         private async void CreateAndShareQR()

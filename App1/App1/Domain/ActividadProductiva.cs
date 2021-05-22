@@ -26,12 +26,20 @@ namespace Approagro.Domain
         public DateTime UltimaActualizacion { get; set; }
         public DateTime ProximaAplicacion { get; set; }
 
-        private List<LaboresRealizadas> mLabores = new List<LaboresRealizadas>();
+        private List<LaborRealizada> mLabores = new List<LaborRealizada>();
         [Ignore]
-        public List<LaboresRealizadas> LaboresRealizadas
+        public List<LaborRealizada> LaboresRealizadas
         {
             get { return mLabores; }
             set { mLabores = value; }
+        }
+
+        private List<Enfermedades> mEnfermedades = new List<Enfermedades>();
+        [Ignore]
+        public List<Enfermedades> Enfermedades
+        {
+            get { return mEnfermedades; }
+            set { mEnfermedades = value; }
         }
     }
 

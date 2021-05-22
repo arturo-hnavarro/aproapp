@@ -4,14 +4,14 @@
              x:Class="Approagro.App">
     <Application.Resources>
 
-        <Thickness x:Key="PageMargin">20</Thickness>
+        <Thickness x:Key="PageMargin">40,20</Thickness>
 
-        <!-- Colors -->
+        <!-- Colors 
         <Color x:Key="AppBackgroundColor">White</Color>
         <Color x:Key="NavigationBarColor">#1976D2</Color>
         <Color x:Key="NavigationBarTextColor">White</Color>
-
-        <!-- Implicit styles -->
+        -->
+        <!-- Implicit styles 
         <Style TargetType="{x:Type NavigationPage}">
             <Setter Property="BarBackgroundColor"
                     Value="{StaticResource NavigationBarColor}" />
@@ -22,7 +22,7 @@
         <Style TargetType="{x:Type ContentPage}"
                ApplyToDerivedTypes="True">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource AppBackgroundColor}" />
-        </Style>
+                    Value="{StaticResource AppBackgroundColor}" /> 
+        </Style>-->
     </Application.Resources>
 </Application>

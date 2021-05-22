@@ -19,7 +19,8 @@ namespace Approagro.Dao
             database.CreateTableAsync<TipoActividad>().Wait();
             database.CreateTableAsync<ActividadProductiva>().Wait();
             database.CreateTableAsync<Insumos>().Wait();
-            database.CreateTableAsync<LaboresRealizadas>().Wait();
+            database.CreateTableAsync<LaborRealizada>().Wait();
+            database.CreateTableAsync<Enfermedades>().Wait();
         }
 
         #region CRUD TipoActividad
@@ -80,6 +81,7 @@ namespace Approagro.Dao
 
                 ActividadProductiva.Result.TipoActividad = GetTipoActividadAsync(ActividadProductiva.Result.Fk_TipoActividad).Result;
                 ActividadProductiva.Result.LaboresRealizadas = GetLaboresRealizadasByActividadProductiva(id).Result;
+                ActividadProductiva.Result.Enfermedades = GetEnfermedadesByActividadProductiva(id).Result;
 
                 return ActividadProductiva;
             }
@@ -127,16 +129,16 @@ namespace Approagro.Dao
         #endregion
 
         #region CRUD LaboresRealizadas
-        public Task<List<LaboresRealizadas>> GetLaboresRealizadasAsync()
+        public Task<List<LaborRealizada>> GetLaboresRealizadasAsync()
         {
-            return database.Table<LaboresRealizadas>().ToListAsync();
+            return database.Table<LaborRealizada>().ToListAsync();
         }
 
-        public Task<LaboresRealizadas> GetLaborRealizadAsync(int id)
+        public Task<LaborRealizada> GetLaborRealizadAsync(int id)
         {
             try
             {
-                var LaboresRealizadas = database.Table<LaboresRealizadas>()
+                var LaboresRealizadas = database.Table<LaborRealizada>()
                                 .Where(i => i.Id == id)
                                 .FirstOrDefaultAsync();
 
@@ -149,29 +151,53 @@ namespace Approagro.Dao
             }
         }
 
-        public Task<int> SaveLaboresRealizadasAsync(LaboresRealizadas LaboresRealizadas)
+        public Task<LaborRealizada> GetLaborRealizadaByNombreAsync(string nombre)
         {
-            if (LaboresRealizadas.Id != 0)
+            try
             {
-                // Update an existing LaboresRealizadas.
-                return database.UpdateAsync(LaboresRealizadas);
+                var LaboresRealizadas = database.Table<LaborRealizada>()
+                                .Where(i => i.Nombre == nombre)
+                                .FirstOrDefaultAsync();
+
+                LaboresRealizadas.Result.Insumos = GetInsumosByLaborRealizada(LaboresRealizadas.Result.Id).Result;
+                return LaboresRealizadas;
             }
-            else
+            catch
             {
-                // Save a new LaboresRealizadas.
-                return database.InsertAsync(LaboresRealizadas);
+                return null;
             }
         }
 
-        public Task<int> DeleteLaboresRealizadasAsync(LaboresRealizadas LaboresRealizadas)
+        public Task<LaborRealizada> SaveLaborRealizadaAsync(LaborRealizada laborRealizada)
+        {
+            int rowsAfected = -1;
+            if (laborRealizada.Id != 0)
+            {
+                rowsAfected = database.UpdateAsync(laborRealizada).Result;
+                if(rowsAfected!= -1)
+                {
+                    return GetLaborRealizadAsync(laborRealizada.Id);
+                }
+            }
+            else
+            {
+                return SaveNewLaborRealizada(laborRealizada);
+            }
+
+            return null;
+        }
+
+        
+
+        public Task<int> DeleteLaboresRealizadasAsync(LaborRealizada LaboresRealizadas)
         {
             // Delete a LaboresRealizadas.
             return database.DeleteAsync(LaboresRealizadas);
         }
 
-        private Task<List<LaboresRealizadas>> GetLaboresRealizadasByActividadProductiva(int id)
+        public Task<List<LaborRealizada>> GetLaboresRealizadasByActividadProductiva(int id)
         {
-            var labores = database.Table<LaboresRealizadas>()
+            var labores = database.Table<LaborRealizada>()
                             .Where(i => i.FK_ActividadProductiva == id)
                             .ToListAsync();
             labores.Result.ForEach(x => x.Insumos = GetInsumosByLaborRealizada(x.Id).Result); //Add insumos used by specific labor
@@ -217,6 +243,61 @@ namespace Approagro.Dao
             return database.Table<Insumos>()
                             .Where(i => i.Fk_LaborRealizada == id)
                             .ToListAsync();
+        }
+        #endregion
+
+        #region CRUD Enfermedades
+        public Task<List<Enfermedades>> GetEnfermedadesAsync()
+        {
+            return database.Table<Enfermedades>().ToListAsync();
+        }
+
+        public Task<Enfermedades> GetEnfermedadAsync(int id)
+        {
+            var Enfermedades = database.Table<Enfermedades>()
+                            .Where(i => i.Id == id)
+                            .FirstOrDefaultAsync();
+            return Enfermedades;
+        }
+
+        public Task<int> SaveEnfermedadesAsync(Enfermedades Enfermedades)
+        {
+            if (Enfermedades.Id != 0)
+            {
+                // Update an existing Enfermedades.
+                return database.UpdateAsync(Enfermedades);
+            }
+            else
+            {
+                // Save a new Enfermedades.
+                return database.InsertAsync(Enfermedades);
+            }
+        }
+
+        public Task<int> DeleteEnfermedadesAsync(Enfermedades Enfermedades)
+        {
+            return database.DeleteAsync(Enfermedades);
+        }
+
+        private Task<List<Enfermedades>> GetEnfermedadesByActividadProductiva(int id)
+        {
+            return database.Table<Enfermedades>()
+                            .Where(i => i.Fk_ActividadProductiva == id)
+                            .ToListAsync();
+        }
+        #endregion
+
+        #region Metodos utilitarios
+        private Task<LaborRealizada> SaveNewLaborRealizada(LaborRealizada laborRealizada)
+        {
+            int rowsAfected = -1;
+            laborRealizada.Nombre = $"AP{laborRealizada.FK_ActividadProductiva}-{Guid.NewGuid()}";
+            rowsAfected = database.InsertAsync(laborRealizada).Result;
+
+            if(rowsAfected != -1) {
+                return GetLaborRealizadaByNombreAsync(laborRealizada.Nombre);
+            }
+            return null;
         }
         #endregion
     }

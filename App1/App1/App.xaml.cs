@@ -30,8 +30,6 @@ namespace Approagro
 
         protected override void OnStart()
         {
-            CodigoDao codigo = new CodigoDao();
-            codigo.AgregarValoresDePrueba();
         }
 
         protected override void OnSleep()
