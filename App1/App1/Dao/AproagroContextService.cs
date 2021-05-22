@@ -44,6 +44,19 @@ namespace Approagro.Dao
                             .Where(i => i.Nombre == name)
                             .FirstOrDefaultAsync();
         }
+
+        public void SaveInsumosListAsync(List<Insumos> insumos)
+        {
+            try { 
+                if(insumos.Count > 0)
+                    insumos.ForEach(x => SaveInsumosAsync(x));
+            }
+            catch
+            {
+                throw new Exception("No fue posible registrar los insumos aplicados");
+            }
+        }
+
         public Task<int> SaveTipoActividadAsync(TipoActividad TipoActividad)
         {
             if (TipoActividad.IdActividad != 0)

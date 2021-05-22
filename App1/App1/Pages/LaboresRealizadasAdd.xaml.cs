@@ -35,19 +35,17 @@ namespace Approagro.Pages
             if (respuesta != null)
             {
                 actividadProductiva.LaboresRealizadas.Add(respuesta);
-                bool agregar = await DisplayAlert("Labor registrada", "Labor registrada correctamente. ¿Desea registrar Insumos utilizados?", "Sí", "No");
-                if (agregar)
+                bool add = await DisplayAlert("Labor registrada", "Labor registrada correctamente. ¿Desea registrar Insumos utilizados?", "Sí", "No");
+                if (add)
                 {
-
+                    await Navigation.PushAsync(new InsumosAdd(respuesta), true);
                 }
                 else
                 {
                     await Navigation.PopAsync();
                 }
-
             }
         }
-
 
         private async Task<LaborRealizada> Mapper()
         {
