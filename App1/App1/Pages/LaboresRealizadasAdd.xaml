@@ -15,6 +15,8 @@
                     <Entry x:Name="EntryObservacion" Placeholder="Detalle de la labor realizada" />
 
                     <Label Text="Fecha" />
+                    <Label Text="Fecha última actualización" />
+                    <DatePicker x:Name="FechaDeActividad"/>
                     
                     <Button Text="Agregar insumos" Clicked="RegistrarInsumos" BackgroundColor="AliceBlue" CornerRadius="10" BorderWidth="1" BorderColor="DarkBlue"/>
 

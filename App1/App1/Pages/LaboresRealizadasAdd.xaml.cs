@@ -54,9 +54,9 @@ namespace Approagro.Pages
             return new LaborRealizada
             {
                 Observaciones = EntryObservacion.Text,
-                FK_ActividadProductiva = actividadProductiva.IdActividad
+                FK_ActividadProductiva = actividadProductiva.IdActividad,
+                Fecha = FechaDeActividad.Date
             };
-
         }
     }
 }
