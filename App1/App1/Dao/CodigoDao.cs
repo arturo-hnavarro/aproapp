@@ -8,6 +8,7 @@ using ZXing.Net.Mobile.Forms;
 using Xamarin.Forms;
 using System.Linq;
 using Approagro.Domain;
+using Newtonsoft.Json;
 
 namespace Approagro.Dao
 {
@@ -19,8 +20,8 @@ namespace Approagro.Dao
             ActividadProductiva actividadProductiva;
             try
             {
-                string IdActividad = value.Split('|')[2];
-                actividadProductiva = App.AproagroDB.GetActividadProductivaAsync(Int32.Parse(IdActividad)).Result;
+                ActividadProductivaQR qrObject = JsonConvert.DeserializeObject<ActividadProductivaQR>(value);
+                actividadProductiva = App.AproagroDB.GetActividadProductivaAsyncByIdByNombre(qrObject.IdActividad, qrObject.NombreActividad).Result;
                 if (actividadProductiva == null)
                     throw new Exception();
             }

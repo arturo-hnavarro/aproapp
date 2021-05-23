@@ -91,6 +91,27 @@ namespace Approagro.Dao
             }
         }
 
+        public Task<ActividadProductiva> GetActividadProductivaAsyncByIdByNombre(int id, string nombre)
+        {
+            try
+            {
+                var ActividadProductiva = database.Table<ActividadProductiva>()
+                            .Where(i => i.IdActividad == id && i.NombreActividad == nombre)
+                            .FirstOrDefaultAsync();
+
+                ActividadProductiva.Result.TipoActividad = GetTipoActividadAsync(ActividadProductiva.Result.Fk_TipoActividad).Result;
+                ActividadProductiva.Result.LaboresRealizadas = GetLaboresRealizadasByActividadProductiva(id).Result;
+                ActividadProductiva.Result.Enfermedades = GetEnfermedadesByActividadProductiva(id).Result;
+
+                return ActividadProductiva;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+
         public Task<ActividadProductiva> SaveActividadProductivaAsync(ActividadProductiva ActividadProductiva)
         {
             int rows = -1;

@@ -6,6 +6,7 @@ using Xamarin.Essentials;
 using ImageFromXamarinUI;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Newtonsoft.Json;
 
 namespace Approagro.Pages
 {
@@ -13,7 +14,6 @@ namespace Approagro.Pages
     public partial class ActividadProductivaGenerarQR : ContentPage
     {
 
-        private readonly string QRStringValue = "APROAGRO|";
         private readonly ActividadProductiva actividad;
         public ActividadProductivaGenerarQR()
         {
@@ -32,7 +32,7 @@ namespace Approagro.Pages
         /// </summary>
         private void GenerateQR()
         {
-            QR.BarcodeValue = $"{QRStringValue}{actividad.NombreActividad}|{actividad.IdActividad}";
+            QR.BarcodeValue = QRStringValue(actividad);
             Label_QR_Nombre.Text = $"Actividad: {actividad.NombreActividad}";
             Label_QR_Ubicacion.Text = $"Ubicación: {actividad.Ubicacion}";
         }
@@ -129,6 +129,18 @@ namespace Approagro.Pages
             {
                 throw ex;
             }
+        }
+
+        private string QRStringValue(ActividadProductiva actividadProductiva)
+        {
+            ActividadProductivaQR qr = new ActividadProductivaQR
+            {
+                IdActividad = actividad.IdActividad,
+                NombreActividad = actividad.NombreActividad,
+                Descripcion = actividad.Descripcion,
+                Fk_TipoActividad = actividad.Fk_TipoActividad
+            };
+            return JsonConvert.SerializeObject(qr);
         }
     }
 }
