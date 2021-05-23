@@ -43,7 +43,7 @@ namespace Approagro.Pages
             if (MyListView.SelectedItem != null)
             {
                 LaborRealizada labor = (LaborRealizada)MyListView.SelectedItem;
-                await DisplayAlert("Descripción", labor.Observaciones, "Aceptar");
+                await Navigation.PushAsync(new PageDetalleLaborRealizada(labor));
             }
         }
 

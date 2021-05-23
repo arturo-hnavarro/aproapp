@@ -5,6 +5,30 @@
     <Application.Resources>
 
         <Thickness x:Key="PageMargin">40,20</Thickness>
+        <Color x:Key="ButtonPrimay">Black</Color>
+
+        <!--Impicit Styles-->
+        <Style TargetType="Button">
+            <Setter Property="CornerRadius" Value="10"></Setter>
+            <Setter Property="BackgroundColor" Value="AliceBlue"></Setter>
+            <Setter Property="BorderWidth" Value="1"></Setter>
+            <Setter Property="BorderColor" Value="DarkBlue"></Setter>
+        </Style>
+        <Style TargetType="ListView">
+        </Style>
+        <Style TargetType="Button" x:Key="ButtonPrimary">
+            <Setter Property="CornerRadius" Value="10"></Setter>
+            <Setter Property="BackgroundColor" Value="AliceBlue"></Setter>
+            <Setter Property="BorderWidth" Value="1"></Setter>
+            <Setter Property="BorderColor" Value="DarkBlue"></Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonSecundary">
+            <Setter Property="CornerRadius" Value="10"></Setter>
+            <Setter Property="BackgroundColor" Value="GhostWhite"></Setter>
+            <Setter Property="BorderWidth" Value="1"></Setter>
+            <Setter Property="BorderColor" Value="DarkBlue"></Setter>
+        </Style>
 
         <!-- Colors 
         <Color x:Key="AppBackgroundColor">White</Color>

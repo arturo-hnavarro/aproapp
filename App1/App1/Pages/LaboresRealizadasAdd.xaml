@@ -18,7 +18,7 @@
                     <Label Text="Fecha última actualización" />
                     <DatePicker x:Name="FechaDeActividad"/>
                     
-                    <Button Text="Agregar insumos" Clicked="RegistrarInsumos" BackgroundColor="AliceBlue" CornerRadius="10" BorderWidth="1" BorderColor="DarkBlue"/>
+                    <Button Text="Agregar insumos" Clicked="RegistrarInsumos"  BackgroundColor="AliceBlue" CornerRadius="10" BorderWidth="1" BorderColor="DarkBlue"/>
 
                 </StackLayout>
             </ScrollView>

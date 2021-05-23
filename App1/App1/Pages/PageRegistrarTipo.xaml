@@ -6,16 +6,16 @@
         <StackLayout>
             <!--Header-->
             <StackLayout Margin="{StaticResource PageMargin}">
-                <Label Text="Registrar nuevo tipo de actividad" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" TextColor="Black"/>
+                <Label Text="Registrar nuevo tipo de actividad" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10"/>
             </StackLayout>
             <!--Body-->
             <StackLayout Margin="{StaticResource PageMargin}">
-                <Label Text="Nombre" FontSize="Large" Padding="30,10,30,0" TextColor="Black"/>
+                <Label Text="Nombre" FontSize="Large" Padding="30,10,30,0"/>
                 <Entry x:Name="EntryActivityName"
                    Placeholder="Nombre actividad. Ej: Siembra de café.">
                 </Entry>
 
-                <Label Text="Descripción" FontSize="Large" Padding="30,10,30,0" TextColor="Black"/>
+                <Label Text="Descripción" FontSize="Large" Padding="30,10,30,0"/>
                 <Entry x:Name="EntryActivityDescription"
                    Placeholder="Un pequeño detalle u observación para referencia."
                     VerticalOptions="StartAndExpand">

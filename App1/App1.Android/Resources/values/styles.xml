@@ -15,4 +15,5 @@
          which is used to tint widgets -->
     <!--<item name="colorAccent">#FF4081</item>-->
   </style>
+  <color name="listViewSelected">#96bce3</color>
 </resources>

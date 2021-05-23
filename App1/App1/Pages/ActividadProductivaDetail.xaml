@@ -29,14 +29,14 @@
                     <Label Text="Fecha próxima actualización" />
                     <DatePicker x:Name="ActivityProximaActualizacion"/>
 
-                    <Button Text="Labores realizadas" Clicked="ToListLabores" FontSize="Default" BackgroundColor="GhostWhite" CornerRadius="10" BorderWidth="1" BorderColor="DarkBlue"/>
-                    <Button Text="Enfermedades registradas" Clicked="ToListEnfermedades" FontSize="Default" BackgroundColor="GhostWhite" CornerRadius="10" BorderWidth="1" BorderColor="DarkBlue"/>
+                    <Button Text="Labores realizadas" Clicked="ToListLabores" Style="{StaticResource ButtonSecundary}"/>
+                    <Button Text="Enfermedades registradas" Clicked="ToListEnfermedades" Style="{StaticResource ButtonSecundary}"/>
 
                 </StackLayout>
             </ScrollView>
             <!--Footer-->
             <StackLayout Margin="{StaticResource PageMargin}">
-                <Button Text="Actualizar" BackgroundColor="AliceBlue" CornerRadius="10" BorderWidth="1" BorderColor="DarkBlue"/>
+                <Button Text="Actualizar" Style="{StaticResource ButtonPrimary}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
