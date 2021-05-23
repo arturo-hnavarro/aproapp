@@ -13,7 +13,7 @@ namespace Approagro.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LaboresRealizadasAdd : ContentPage
     {
-        ActividadProductiva actividadProductiva;
+        private ActividadProductiva actividadProductiva;
         public LaboresRealizadasAdd()
         {
             InitializeComponent();
@@ -25,9 +25,6 @@ namespace Approagro.Pages
             actividadProductiva = actividad;
         }
 
-        async void RegistrarInsumos(object sender, EventArgs e)
-        {
-        }
 
         async void RegistrarLabor(object sender, EventArgs e)
         {

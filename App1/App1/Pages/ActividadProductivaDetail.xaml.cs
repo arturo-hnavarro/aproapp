@@ -42,7 +42,7 @@ namespace Approagro.Pages
         {
             try
             {
-                //await Navigation.PushAsync(new LaboresRealizadas());
+                await Navigation.PushAsync(new EnfermedadesRegistradas(actividadProductiva));
             }
             catch (Exception ex)
             {

@@ -36,7 +36,7 @@ namespace Approagro.Pages
                 insumos.Add(Mapper());
                 if (await DisplayAlert("Insumo agregado", "Insumo agregado ¿Desea registrar otro?", "Sí", "No"))
                 {
-                    cleanEntry();
+                    CleanEntry();
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace Approagro.Pages
             };
         }
 
-        private void cleanEntry()
+        private void CleanEntry()
         {
             EntryNombre.Text = "";
             EntryPrecio.Text = "";

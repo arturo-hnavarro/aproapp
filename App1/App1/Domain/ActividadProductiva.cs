@@ -34,9 +34,9 @@ namespace Approagro.Domain
             set { mLabores = value; }
         }
 
-        private List<Enfermedades> mEnfermedades = new List<Enfermedades>();
+        private List<Enfermedad> mEnfermedades = new List<Enfermedad>();
         [Ignore]
-        public List<Enfermedades> Enfermedades
+        public List<Enfermedad> Enfermedades
         {
             get { return mEnfermedades; }
             set { mEnfermedades = value; }

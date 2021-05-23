@@ -11,15 +11,15 @@ using Xamarin.Forms.Xaml;
 namespace Approagro.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LaboresRealizadas : ContentPage
+    public partial class EnfermedadesRegistradas : ContentPage
     {
-        ActividadProductiva actividadProductiva;
-        public LaboresRealizadas()
+        private ActividadProductiva actividadProductiva;
+        public EnfermedadesRegistradas()
         {
             InitializeComponent();
         }
 
-        public LaboresRealizadas(ActividadProductiva actividad)
+        public EnfermedadesRegistradas(ActividadProductiva actividad)
         {
             InitializeComponent();
             actividadProductiva = actividad;
@@ -30,7 +30,7 @@ namespace Approagro.Pages
             base.OnAppearing();
             try
             {
-                MyListView.ItemsSource = await GetLaboresRealizadas();
+                MyListView.ItemsSource = await GetEnfermedades();
             }
             catch (Exception ex)
             {
@@ -42,20 +42,19 @@ namespace Approagro.Pages
         {
             if (MyListView.SelectedItem != null)
             {
-                LaborRealizada labor = (LaborRealizada)MyListView.SelectedItem;
-                await Navigation.PushAsync(new PageDetalleLaborRealizada(labor));
+                Enfermedad enfermedades= (Enfermedad)MyListView.SelectedItem;
+                await DisplayAlert("Descripción", enfermedades.Nombre, "Aceptar");
             }
         }
 
-        async void OnRegisterLaborClick(object sender, EventArgs e)
+        async void OnRegisterEnfermedadClick(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LaboresRealizadasAdd(actividadProductiva));
+            await Navigation.PushAsync(new EnfermedadesAdd(actividadProductiva));
         }
 
-        private Task<List<LaborRealizada>> GetLaboresRealizadas()
+        private Task<List<Enfermedad>> GetEnfermedades()
         {
-            return App.AproagroDB.GetLaboresRealizadasByActividadProductiva(actividadProductiva.IdActividad);
+            return App.AproagroDB.GetEnfermedadesByActividadProductiva(actividadProductiva.IdActividad);
         }
-        
     }
 }

@@ -20,7 +20,7 @@ namespace Approagro.Dao
             database.CreateTableAsync<ActividadProductiva>().Wait();
             database.CreateTableAsync<Insumos>().Wait();
             database.CreateTableAsync<LaborRealizada>().Wait();
-            database.CreateTableAsync<Enfermedades>().Wait();
+            database.CreateTableAsync<Enfermedad>().Wait();
         }
 
         #region CRUD TipoActividad
@@ -44,19 +44,6 @@ namespace Approagro.Dao
                             .Where(i => i.Nombre == name)
                             .FirstOrDefaultAsync();
         }
-
-        public void SaveInsumosListAsync(List<Insumos> insumos)
-        {
-            try { 
-                if(insumos.Count > 0)
-                    insumos.ForEach(x => SaveInsumosAsync(x));
-            }
-            catch
-            {
-                throw new Exception("No fue posible registrar los insumos aplicados");
-            }
-        }
-
         public Task<int> SaveTipoActividadAsync(TipoActividad TipoActividad)
         {
             if (TipoActividad.IdActividad != 0)
@@ -199,15 +186,11 @@ namespace Approagro.Dao
 
             return null;
         }
-
-        
-
         public Task<int> DeleteLaboresRealizadasAsync(LaborRealizada LaboresRealizadas)
         {
             // Delete a LaboresRealizadas.
             return database.DeleteAsync(LaboresRealizadas);
         }
-
         public Task<List<LaborRealizada>> GetLaboresRealizadasByActividadProductiva(int id)
         {
             var labores = database.Table<LaborRealizada>()
@@ -215,6 +198,18 @@ namespace Approagro.Dao
                             .ToListAsync();
             labores.Result.ForEach(x => x.Insumos = GetInsumosByLaborRealizada(x.Id).Result); //Add insumos used by specific labor
             return labores;
+        }
+        public void SaveInsumosListAsync(List<Insumos> insumos)
+        {
+            try
+            {
+                if (insumos.Count > 0)
+                    insumos.ForEach(x => SaveInsumosAsync(x));
+            }
+            catch
+            {
+                throw new Exception("No fue posible registrar los insumos aplicados");
+            }
         }
         #endregion
 
@@ -260,20 +255,20 @@ namespace Approagro.Dao
         #endregion
 
         #region CRUD Enfermedades
-        public Task<List<Enfermedades>> GetEnfermedadesAsync()
+        public Task<List<Enfermedad>> GetEnfermedadesAsync()
         {
-            return database.Table<Enfermedades>().ToListAsync();
+            return database.Table<Enfermedad>().ToListAsync();
         }
 
-        public Task<Enfermedades> GetEnfermedadAsync(int id)
+        public Task<Enfermedad> GetEnfermedadAsync(int id)
         {
-            var Enfermedades = database.Table<Enfermedades>()
+            var Enfermedades = database.Table<Enfermedad>()
                             .Where(i => i.Id == id)
                             .FirstOrDefaultAsync();
             return Enfermedades;
         }
 
-        public Task<int> SaveEnfermedadesAsync(Enfermedades Enfermedades)
+        public Task<int> SaveEnfermedadesAsync(Enfermedad Enfermedades)
         {
             if (Enfermedades.Id != 0)
             {
@@ -287,16 +282,29 @@ namespace Approagro.Dao
             }
         }
 
-        public Task<int> DeleteEnfermedadesAsync(Enfermedades Enfermedades)
+        public Task<int> DeleteEnfermedadesAsync(Enfermedad Enfermedades)
         {
             return database.DeleteAsync(Enfermedades);
         }
 
-        private Task<List<Enfermedades>> GetEnfermedadesByActividadProductiva(int id)
+        public Task<List<Enfermedad>> GetEnfermedadesByActividadProductiva(int id)
         {
-            return database.Table<Enfermedades>()
+            return database.Table<Enfermedad>()
                             .Where(i => i.Fk_ActividadProductiva == id)
                             .ToListAsync();
+        }
+
+        internal void SaveEnferdadesListAsync(List<Enfermedad> enfermedades)
+        {
+            try
+            {
+                if (enfermedades.Count > 0)
+                    enfermedades.ForEach(x => SaveEnfermedadesAsync(x));
+            }
+            catch
+            {
+                throw new Exception("No fue posible registrar los insumos aplicados");
+            }
         }
         #endregion
 

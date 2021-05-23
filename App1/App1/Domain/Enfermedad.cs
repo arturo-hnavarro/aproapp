@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Approagro.Domain
 {
-    public class Enfermedades
+    public class Enfermedad
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
