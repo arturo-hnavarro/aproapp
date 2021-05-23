@@ -21,6 +21,9 @@ namespace Approagro.Pages
         {
             await Navigation.PushAsync(new ActividadesProductivasAdd());
         }
-
+        async void OnShowTipoActivityClick(Object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PageListaActividadesProductivas());
+        }
     }
 }

@@ -14,8 +14,7 @@ namespace Approagro.Pages
     {
 
         private readonly string QRStringValue = "APROAGRO|";
-        private readonly string FileTmpName = "APROAGRO_QRCode.jpg";
-        private ActividadProductiva actividad;
+        private readonly ActividadProductiva actividad;
         public ActividadProductivaGenerarQR()
         {
             InitializeComponent();
@@ -59,12 +58,21 @@ namespace Approagro.Pages
             var screenshot = await Screenshot.CaptureAsync();
             var stream = await screenshot.OpenReadAsync();
 
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), FileTmpName);
-            using (var fileStream = File.Create(path))
+            //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), FileTmpName);
+            try
             {
-                stream.Seek(0, SeekOrigin.Begin);
-                stream.CopyTo(fileStream);
+                var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), actividad.NombreActividad + ".jpg");
+                using (var fileStream = File.Create(path))
+                {
+                    stream.Seek(0, SeekOrigin.Begin);
+                    stream.CopyTo(fileStream);
+                }
             }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error.", $"Ha ocurrido un error: {ex.Message}", "Aceptar");
+            }
+
         }
 
 
@@ -72,40 +80,41 @@ namespace Approagro.Pages
         /// Based on the implementation of https://www.youtube.com/watch?v=O9D3NSYh1t0
         /// uses ImageFromXamarinUI nuget
         /// </summary>
-        async void PartialCaptureScreenshot()
+        async Task PartialCaptureScreenshot()
         {
             try
             {
-                var screenshotStream = await QR.CaptureImageAsync();
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), FileTmpName);
+                var screenshotStream = await QRWrapper.CaptureImageAsync();
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), actividad.NombreActividad + ".jpg");
                 using (var fileStream = File.Create(path))
                 {
                     screenshotStream.Seek(0, SeekOrigin.Begin);
                     screenshotStream.CopyTo(fileStream);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception("No fue posible generar el código QR");
+                await DisplayAlert("Error.", $"Ha ocurrido un error: {ex.Message}", "Aceptar");
             }
         }
 
         /// <summary>
         /// Share the QR code generated
         /// </summary>
-        private async void ShareQR()
+        private async Task ShareQR()
         {
             try
             {
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), FileTmpName);
+                var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), actividad.NombreActividad + ".jpg");
                 await Share.RequestAsync(new ShareFileRequest
                 {
                     Title = "Código QR",
                     File = new ShareFile(path)
                 });
-            }catch
+            }
+            catch (Exception ex)
             {
-                throw new Exception("No fue posible exportar el código QR");
+                await DisplayAlert("Error.", $"Ha ocurrido un error: {ex.Message}", "Aceptar");
             }
         }
 
@@ -113,8 +122,8 @@ namespace Approagro.Pages
         {
             try
             {
-                PartialCaptureScreenshot();
-                ShareQR();
+                await PartialCaptureScreenshot();
+                await ShareQR();
             }
             catch (Exception ex)
             {

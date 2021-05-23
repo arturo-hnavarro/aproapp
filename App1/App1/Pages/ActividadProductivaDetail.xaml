@@ -31,6 +31,7 @@
 
                     <Button Text="Labores realizadas" Clicked="ToListLabores" Style="{StaticResource ButtonSecundary}"/>
                     <Button Text="Enfermedades registradas" Clicked="ToListEnfermedades" Style="{StaticResource ButtonSecundary}"/>
+                    <Button Text="Ver Código QR" Clicked="ToQRCode" Style="{StaticResource ButtonSecundary}"/>
 
                 </StackLayout>
             </ScrollView>

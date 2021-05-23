@@ -71,9 +71,9 @@ namespace Approagro
 
         }
 
-        async void OnAddActivityClick(Object sender, EventArgs e)
+        async void OnSeeActivityClick(Object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PageRegistrar());
+            await Navigation.PushAsync(new PageListaActividadesProductivas());
         }
         
         async void GoToSubMenuAdmin(Object sender, EventArgs e)

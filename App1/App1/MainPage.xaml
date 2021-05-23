@@ -6,39 +6,26 @@
              mc:Ignorable="d"
              x:Class="Approagro.MainPage">
     <ContentPage.Content>
+
         <StackLayout x:Name="stackLayout">
             <!--Header-->
-            <Frame BackgroundColor="#2196F3" Padding="8" CornerRadius="0">
+            <Frame BackgroundColor="#2196F3" Padding="8" CornerRadius="0" >
                 <Label Text="Approagro, bienvenido" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
             </Frame>
-            <Image Source="agricultor.jpg" />
             <!--Body-->
             <ScrollView VerticalScrollBarVisibility="Always">
-                <StackLayout Margin="{StaticResource PageMargin}">
-                    <Label Text="Menu principal" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" />
-                    <Button Text="Administración"
+                <StackLayout>
+                    <Image Source="agricultor.jpg" />
+                    <StackLayout Margin="{StaticResource PageMargin}">
+                        <Label Text="Menu principal" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" />
+                        <Button Text="Administración"
                 Clicked="GoToSubMenuAdmin"/>
-                <Button Text="Agregar actividad productiva"
-                Clicked="OnAddActivityClick"/>
-                <Button Text="Escanear"
+                        <Button Text="Escanear"
                 Clicked="OnScanClick"/>
-                <Label Text="Click the button below to create a local notification."
-           TextColor="Red"
-           HorizontalOptions="Center"
-           VerticalOptions="Start" />
-                <Button Text="Create Notification"
-            HorizontalOptions="Center"
-            VerticalOptions="Start"
-            Clicked="OnSendClick" />
-                <Label Text="Click the button below to schedule a local notification for in 10 seconds time."
-           TextColor="Red"
-           HorizontalOptions="Center"
-           VerticalOptions="Start" />
-                <Button Text="Create Notification"
-            HorizontalOptions="Center"
-            VerticalOptions="Start"
-            Clicked="OnScheduleClick" />
-            </StackLayout>
+                        <Button Text="Ver Actividades Productivas"
+                Clicked="OnSeeActivityClick"/>
+                    </StackLayout>
+                </StackLayout>
             </ScrollView>
         </StackLayout>
     </ContentPage.Content>

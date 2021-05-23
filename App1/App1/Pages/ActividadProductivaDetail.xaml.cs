@@ -13,7 +13,7 @@ namespace Approagro.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ActividadProductivaDetail : ContentPage
     {
-        ActividadProductiva actividadProductiva;
+        private ActividadProductiva actividadProductiva;
         public ActividadProductivaDetail()
         {
             InitializeComponent();
@@ -50,7 +50,10 @@ namespace Approagro.Pages
             }
         }
         
-
+        async void ToQRCode(Object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ActividadProductivaGenerarQR(actividadProductiva));
+        }
         private void InitializeValues()
         {
             EntryActivityName.Text = actividadProductiva.NombreActividad;

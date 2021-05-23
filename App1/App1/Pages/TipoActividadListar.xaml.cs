@@ -30,17 +30,6 @@ namespace Approagro.Pages
                 await DisplayAlert("Error.", ex.Message, "Aceptar");
             }
         }
-        /*
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
-        }*/
 
         async void OnListViewItemSelected(object sender, EventArgs e)
         {
