@@ -6,37 +6,34 @@
         <StackLayout>
             <!--Header-->
             <StackLayout Margin="{StaticResource PageMargin}">
-                <Label Text="Actividades productivas" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" TextColor="Black"/>
+                <Label Text="Actividades productivas" FontSize="Title"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                <!--Body-->
+                <Label FontSize="Subtitle" Padding="5,5">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Actividad económica a la que se dedica. Están relacionadas a un tipo de actividad productiva. "/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
+                <Label >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Puede registrar una o más actividades productivas. Algunos ejemplos son siembra de café, cría de cerdos, cría de pollos de engorde, gallinas ponedoras, siembra de aguacate, siembra de papas, etc."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
             </StackLayout>
-            <!--Body-->
-            <ScrollView>
-                <StackLayout Margin="{StaticResource PageMargin}">
-                    <Label FontSize="Subtitle" Padding="30,24,30,0">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Text="Las actividades productivas permiten administrar las distintas labores y trabajos que realiza."/>
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-
-                    <Label FontSize="Subtitle" Padding="30,24,10,15">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Text="Por ejemplo: Puede crear una actividad productiva para una siembra de papa en finca ''La Esperanza'' para registrar por lotes los diferentes insumos que utiliza o programar alertas."/>
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Button Text="Agregar actividad productiva"
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Button Text="Agregar actividad productiva"
                 Clicked="OnAddActivityClick"/>
-                    <Button Text="Ver actividades productiva"
+                <Button Text="Ver actividades productiva"
                 Clicked="OnShowTipoActivityClick"/>
-                </StackLayout>
-            </ScrollView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

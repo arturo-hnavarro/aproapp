@@ -69,6 +69,10 @@ namespace Approagro.Pages
             {
                 throw new ArgumentException("Nombre no puede ser nulo o vacío.");
             }
+            else
+            {
+                actividadProductiva.NombreActividad = actividadProductiva.NombreActividad.Trim();
+            }
 
             if (string.IsNullOrWhiteSpace(actividadProductiva.Ubicacion))
             {

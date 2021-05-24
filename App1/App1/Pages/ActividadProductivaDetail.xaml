@@ -37,7 +37,7 @@
             </ScrollView>
             <!--Footer-->
             <StackLayout Margin="{StaticResource PageMargin}">
-                <Button Text="Programar recordatorio" Style="{StaticResource ButtonPrimary}"/>
+                <Button Text="Programar recordatorio" Clicked="ProgrmarNotificacion" Style="{StaticResource ButtonPrimary}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

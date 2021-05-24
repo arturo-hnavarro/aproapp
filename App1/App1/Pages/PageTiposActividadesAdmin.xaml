@@ -6,15 +6,22 @@
         <StackLayout>
             <!--Header-->
             <StackLayout Margin="{StaticResource PageMargin}">
-                <Label Text="Tipos de actividades productivas" FontSize="Title"  TextColor="Black"
-                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                <Label Text="Tipos de actividades productivas" FontSize="Title"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
 
-                <Label FontSize="Subtitle" Padding="30,24,30,15" HorizontalTextAlignment="Start"> 
+                <Label FontSize="Subtitle" Padding="5,5" HorizontalTextAlignment="Start"> 
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Los tipos de actividades productivas son el tipo de trabajo al que se dedica. Por ejemplo: siembra de café, siembra de zanahorias, siembra de lechugas, cria de cerdos, gallinas de engorde.
-                                      "/>
+                                <Span Text="Se refieren al sector agropecuario al que pertenece la labor que realiza el afiliado."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label HorizontalTextAlignment="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Puede definir los tipos de actividades como agricultura, pecuaria, cultivo de hortalizas, plantaciones frutales, ganadería, entre otros ejemplos."/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>

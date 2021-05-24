@@ -26,17 +26,15 @@ namespace Approagro
 
         void OnSendClick(object sender, EventArgs e)
         {
-            notificationNumber++;
-            string title = $"Local Notification #{notificationNumber}";
-            string message = $"You have now received {notificationNumber} notifications!";
+            string title = "Fecha de mantenimiento se apróxima";
+            string message = "Actividad [[NOMBRE]] que requiere su atención.";
             notificationManager.SendNotification(title, message);
         }
 
         void OnScheduleClick(object sender, EventArgs e)
         {
-            notificationNumber++;
-            string title = $"Local Notification #{notificationNumber}";
-            string message = $"You have now received {notificationNumber} notifications!";
+            string title = "Fecha de mantenimiento se apróxima";
+            string message = "Actividad [[NOMBRE]] que requiere su atención.";
             notificationManager.SendNotification(title, message, DateTime.Now.AddSeconds(600));
         }
 
@@ -49,14 +47,26 @@ namespace Approagro
         {
             Device.BeginInvokeOnMainThread(() =>
             {
-                var msg = new Label()
-                {
-                    Text = $"Notification Received:\nTitle: {title}\nMessage: {message}"
-                };
-                stackLayout.Children.Add(msg);
+                ProcessNotification(title, message);
             });
+
         }
 
+        private async void ProcessNotification(string title, string message)
+        {
+            try
+            {
+                bool checkActividad = await DisplayAlert("Atención", $"{title}\n{message}", "Ir a actividad productiva", "Cancelar");
+                if (checkActividad)
+                {
+                    await Navigation.PushAsync(new ActividadProductivaDetail(GetActividadProductiva(GetNombreActividadFromNotification(message))));
+                }
+            }
+            catch
+            {
+                await DisplayAlert("Ups", "No fue posible obtener el detalle de la actividad productiva", "Aceptar");
+            }
+        }
 
         async void OnScanClick(Object sender, EventArgs e)
         {
@@ -75,7 +85,7 @@ namespace Approagro
         {
             await Navigation.PushAsync(new PageListaActividadesProductivas());
         }
-        
+
         async void GoToSubMenuAdmin(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PageAdministration());
@@ -94,7 +104,6 @@ namespace Approagro
                 {
                     Navigation.PopAsync();
                     GetInfoFromQR(result.Text);
-                    //ScheduleMessage("APROAGRO", $"Proximo mantenimiento se acerca:\nNombreActividad: {a.NombreActividad}\nActividad: {a.IdActividad}");
                 });
             };
 
@@ -114,10 +123,18 @@ namespace Approagro
             }
         }
 
-        private string CreateMessage(ActividadProductiva a)
+        private string GetNombreActividadFromNotification(string notificationMessage)
         {
-            return "Actividad raiz: " + a.NombreActividad + ". Actividad: " + a.IdActividad + ". Ultima actualizacion: " + a.UltimaActualizacion;
+            return notificationMessage.Split(':')[1].Split(',')[0].Trim();
         }
 
+        private ActividadProductiva GetActividadProductiva(string nombre)
+        {
+            return App.AproagroDB.GetActividadProductivaByNombreAsync(nombre).Result;
+        }
+        private void GoToActividad(string nombre)
+        {
+            Navigation.PushAsync(new ActividadProductivaDetail());
+        }
     }
 }

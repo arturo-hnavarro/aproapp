@@ -15,7 +15,6 @@
                     <Entry x:Name="EntryObservacion" Placeholder="Detalle de la labor realizada" />
 
                     <Label Text="Fecha" />
-                    <Label Text="Fecha última actualización" />
                     <DatePicker x:Name="FechaDeActividad"/>
                 </StackLayout>
             </ScrollView>

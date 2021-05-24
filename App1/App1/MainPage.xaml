@@ -17,7 +17,7 @@
                 <StackLayout>
                     <Image Source="agricultor.jpg" />
                     <StackLayout Margin="{StaticResource PageMargin}">
-                        <Label Text="Menu principal" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" />
+                        <Label Text="Menú principal" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" />
                         <Button Text="Administración"
                 Clicked="GoToSubMenuAdmin"/>
                         <Button Text="Escanear"

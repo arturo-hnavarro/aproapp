@@ -30,7 +30,7 @@ namespace Approagro.Pages
             Insumos insumo = (Insumos)e.SelectedItem;
             if (e.SelectedItem != null)
             {
-                await DisplayAlert("Insumo", $"Nombre: {insumo.Nombre}\n\rObservación: {insumo.Observacion}\n\rPrecio: {insumo.PrecioTotal}", "Aceptar");
+                await DisplayAlert("Insumo", $"Nombre: {insumo.Nombre}\nCantidad: {insumo.CantidadUsada}\nPrecio: {insumo.PrecioTotal}\nObservaciones: {insumo.Observacion}", "Aceptar");
             }
         }
     }

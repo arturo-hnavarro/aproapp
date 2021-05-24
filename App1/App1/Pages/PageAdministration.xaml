@@ -6,7 +6,7 @@
         <StackLayout>
             <!--Header-->
             <StackLayout Margin="{StaticResource PageMargin}">
-                <Label Text="Menu de administración" HorizontalOptions="CenterAndExpand" FontSize="Large" Padding="30,10,30,10" TextColor="Black"/>
+                <Label Text="Menú de administración" HorizontalOptions="CenterAndExpand" FontSize="Large" Padding="30,10,30,10" />
             </StackLayout>
             <!--Body-->
             <StackLayout Margin="{StaticResource PageMargin}">

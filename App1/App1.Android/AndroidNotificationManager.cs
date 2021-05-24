@@ -82,8 +82,8 @@ namespace Approagro.Droid
                 .SetContentIntent(pendingIntent)
                 .SetContentTitle(title)
                 .SetContentText(message)
-                .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.abc_cab_background_top_mtrl_alpha /*xamagonBlue*/))
-                .SetSmallIcon(Resource.Drawable.abc_cab_background_top_mtrl_alpha /*xamagonBlue*/)
+                .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.abc_btn_colored_material/*xamagonBlue*/))
+                .SetSmallIcon(Resource.Drawable.abc_btn_check_material /*xamagonBlue*/)
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
 
             Notification notification = builder.Build();
