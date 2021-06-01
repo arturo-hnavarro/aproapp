@@ -17,9 +17,12 @@
 
   <ItemGroup>
     <PackageReference Include="ImageFromXamarinUI" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Graph" Version="3.21.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.24.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="QRCoder" Version="1.4.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="TimeZoneConverter" Version="3.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />

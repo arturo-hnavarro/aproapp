@@ -6,6 +6,8 @@ using Android.Runtime;
 using Android.OS;
 using Android.Content;
 using Xamarin.Forms;
+using Android.Content;
+using Microsoft.Identity.Client;
 
 
 namespace Approagro.Droid
@@ -31,6 +33,7 @@ namespace Approagro.Droid
 
 
             LoadApplication(new App());
+            App.AuthUIParent = this;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -52,6 +55,12 @@ namespace Approagro.Droid
                 string message = intent.GetStringExtra(AndroidNotificationManager.MessageKey);
                 DependencyService.Get<INotificationManager>().ReceiveNotification(title, message);
             }
+        }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            AuthenticationContinuationHelper
+                .SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
         }
     }
 }
