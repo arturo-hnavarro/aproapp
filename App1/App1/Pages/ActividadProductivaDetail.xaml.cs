@@ -20,11 +20,16 @@ namespace Approagro.Pages
             InitializeComponent();
             notificationManager = DependencyService.Get<INotificationManager>();
         }
-
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            this.actividadProductiva = App.AproagroDB.GetActividadProductivaAsync(actividadProductiva.IdActividad).Result;
+            InitializeValues();
+        }
         public ActividadProductivaDetail(ActividadProductiva actividad)
         {
             InitializeComponent();
-            actividadProductiva = actividad;
+            this.actividadProductiva = actividad;
             InitializeValues();
             notificationManager = DependencyService.Get<INotificationManager>();
         }

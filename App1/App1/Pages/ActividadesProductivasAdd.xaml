@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="clr-namespace:Approagro"
              x:Class="Approagro.Pages.ActividadesProductivasAdd">
     <ContentPage.Content>
         <StackLayout>
@@ -14,18 +14,27 @@
                 <Label Text="Nombre de la actividad"/>
                 <Entry x:Name="EntryActivityName"
                    Placeholder="Ej: Siembra de café en finca el 'bajo'.">
+                        <Entry.Behaviors>
+                            <behaviors:SetFocusOnEntryCompletedBehavior TargetElement="{x:Reference EntryActivityDescription}" />
+                        </Entry.Behaviors>
                 </Entry>
 
                 <Label Text="Descripción"/>
                 <Entry x:Name="EntryActivityDescription"
                    Placeholder="Un pequeño detalle u observación para referencia.">
-                </Entry>
+                        <Entry.Behaviors>
+                            <behaviors:SetFocusOnEntryCompletedBehavior TargetElement="{x:Reference EntryActivityLocation}" />
+                        </Entry.Behaviors>
+                    </Entry>
 
                 <Label Text="Ubicación"/>
                 <Entry x:Name="EntryActivityLocation"
                    Placeholder="Ubicación donde se realiza la actividad."
                     VerticalOptions="StartAndExpand">
-                </Entry>
+                        <Entry.Behaviors>
+                            <behaviors:SetFocusOnEntryCompletedBehavior TargetElement="{x:Reference PickerActivity}" />
+                        </Entry.Behaviors>
+                    </Entry>
                     <Label Text="Seleccionar tipo de actividad"/>
                     <Picker x:Name="PickerActivity" Title="Seleccionar tipo de actividad" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" />
             </StackLayout>

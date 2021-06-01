@@ -216,13 +216,15 @@ namespace Approagro.Dao
             if (laborRealizada.Id != 0)
             {
                 rowsAfected = database.UpdateAsync(laborRealizada).Result;
-                if(rowsAfected!= -1)
+                if (rowsAfected != -1)
                 {
+                    ActualizarFechaUltimaLabor(laborRealizada.FK_ActividadProductiva, laborRealizada.Fecha);
                     return GetLaborRealizadAsync(laborRealizada.Id);
                 }
             }
             else
             {
+                ActualizarFechaUltimaLabor(laborRealizada.FK_ActividadProductiva, laborRealizada.Fecha);
                 return SaveNewLaborRealizada(laborRealizada);
             }
 
@@ -251,6 +253,15 @@ namespace Approagro.Dao
             catch
             {
                 throw new Exception("No fue posible registrar los insumos aplicados");
+            }
+        }
+        private void ActualizarFechaUltimaLabor(int id, DateTime date)
+        {
+            ActividadProductiva actividad = GetActividadProductivaAsync(id).Result;
+            if (actividad.UltimaActualizacion < date)
+            {
+                actividad.UltimaActualizacion = date;
+                SaveActividadProductivaAsync(actividad);
             }
         }
         #endregion
@@ -357,7 +368,8 @@ namespace Approagro.Dao
             laborRealizada.Nombre = $"AP{laborRealizada.FK_ActividadProductiva}-{Guid.NewGuid()}";
             rowsAfected = database.InsertAsync(laborRealizada).Result;
 
-            if(rowsAfected != -1) {
+            if (rowsAfected != -1)
+            {
                 return GetLaborRealizadaByNombreAsync(laborRealizada.Nombre);
             }
             return null;
