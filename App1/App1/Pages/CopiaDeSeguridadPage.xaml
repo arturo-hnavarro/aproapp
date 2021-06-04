@@ -12,7 +12,7 @@
                     <!-- Signed out UI -->
                     <StackLayout IsVisible="{Binding Path=IsSignedOut, Source={x:Static Application.Current}}">
                         <Label Text="Inicia sesión para gestionar la copia de seguridad"
-                       HorizontalOptions="Center"
+                       HorizontalOptions="Center" HorizontalTextAlignment="Center"
                        FontAttributes="Bold"
                        FontSize="Medium"
                        Margin="10,20,10,20" />
