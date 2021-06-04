@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.CopiaDeSeguridadPage"
+             Title="Copia de seguridad">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView 
+              AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Spacing="10">
+                    <!-- Signed out UI -->
+                    <StackLayout IsVisible="{Binding Path=IsSignedOut, Source={x:Static Application.Current}}">
+                        <Label Text="Inicia sesión para gestionar la copia de seguridad"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                       Margin="10,20,10,20" />
+                        <Button Text="Iniciar sesión"
+                        Clicked="OnSignIn"
+                        HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <!-- Signed in UI -->
+                    <StackLayout Margin="{StaticResource PageMargin}" IsVisible="{Binding Path=IsSignedIn, Source={x:Static Application.Current}}">
+                        <Image Source="{Binding Path=UserPhoto, Source={x:Static Application.Current}}"
+                       HorizontalOptions="Center"
+                       Margin="0,20,0,10" />
+                        <Label Text="{Binding Path=UserName, Source={x:Static Application.Current}}"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="Small" />
+                        <Label Text="{Binding Path=UserEmail, Source={x:Static Application.Current}}"
+                       HorizontalOptions="Center"
+                       FontAttributes="Italic" />
+                        <Button Text="Crear copia" Clicked="OnBackUp"></Button>
+                        <Button Text="Sincronizar copia" Clicked="OnRestoreBackUp"></Button>
+                        <Button Text="Cerrar sesión"
+                        Clicked="OnSignOut"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <!--Activity-->
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                IsVisible="{Binding IsWorking}">
+                <ActivityIndicator
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    IsRunning="{Binding IsWorking}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

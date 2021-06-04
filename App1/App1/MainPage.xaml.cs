@@ -136,24 +136,10 @@ namespace Approagro
         {
             Navigation.PushAsync(new ActividadProductivaDetail());
         }
-        async void OnSignIn(object sender, EventArgs e)
+        async void OnCopia(object sender, EventArgs e)
         {
-            try
-            {
-                await (Application.Current as App).SignIn();
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Authentication Error", ex.Message, "OK");
-            }
+            await Navigation.PushAsync(new CopiaDeSeguridadPage());
         }
-        async void OnSignOut(object sender, EventArgs e)
-        {
-            var signout = await DisplayAlert("Salir?", "Desea cerrar la sesión?", "Sí", "No");
-            if (signout)
-            {
-                await (Application.Current as App).SignOut();
-            }
-        }
+       
     }
 }
