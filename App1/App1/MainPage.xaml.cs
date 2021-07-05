@@ -140,6 +140,11 @@ namespace Approagro
         {
             await Navigation.PushAsync(new CopiaDeSeguridadPage());
         }
-       
+
+        async void OnAbout(Object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new About());
+        }
+
     }
 }
