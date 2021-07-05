@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.PageRegistrar">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--#Header -->
+            <StackLayout Margin="{StaticResource PageMargin}">
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                <Label Text="Actividad agropecuaria" FontSize="Title" Padding="30,10,30,10" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <!--Body-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Entry x:Name="EntryActivityName"
+               Placeholder="Nombre actividad. Ej: Siembra de café."
+               VerticalOptions="Center"
+               HorizontalOptions="CenterAndExpand"
+               TabIndex="1"
+               WidthRequest="150">
+                </Entry>
+            </StackLayout>
+            <!--Footer-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Button Text="Registrar"
+                Clicked="OnRegisterActivityClick"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.ActividadProductivaDetail">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Actividad productiva" HorizontalTextAlignment="Center" FontSize="Title"/>
+            </StackLayout>
+            <!--Body-->
+            <ScrollView>
+                <StackLayout Margin="{StaticResource PageMargin}">
+                    <Label Text="Nombre" />
+                    <Entry x:Name="EntryActivityName" Placeholder="Nombre de la actividad. Ej: Siembra de café en finca el 'bajo'." IsEnabled="False"/>
+
+                    <Label Text="Descripción" />
+                    <Entry x:Name="EntryActivityDescription" Placeholder="Un pequeño detalle u observación para referencia." IsEnabled="False"/>
+
+                    <Label Text="Ubicación" />
+                    <Entry x:Name="EntryActivityLocation" IsEnabled="False"/>
+
+                    <Label Text="Tipo de actividad" />
+                    <Entry x:Name="EntryTipoActividad" IsEnabled="False"/>
+
+                    <Label Text="Fecha última actualización" />
+                    <DatePicker x:Name="ActivityUltimaActualizacion" IsEnabled="False"/>
+
+                    <Label Text="Fecha próxima actualización" />
+                    <DatePicker x:Name="ActivityProximaActualizacion"/>
+
+                    <Button Text="Labores realizadas" Clicked="ToListLabores" Style="{StaticResource ButtonSecundary}"/>
+                    <Button Text="Enfermedades registradas" Clicked="ToListEnfermedades" Style="{StaticResource ButtonSecundary}"/>
+                    <Button Text="Ver Código QR" Clicked="ToQRCode" Style="{StaticResource ButtonSecundary}"/>
+
+                </StackLayout>
+            </ScrollView>
+            <!--Footer-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Button Text="Programar recordatorio" Clicked="ProgrmarNotificacion" Style="{StaticResource ButtonPrimary}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

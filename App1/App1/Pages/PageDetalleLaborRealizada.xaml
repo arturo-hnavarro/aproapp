@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.PageDetalleLaborRealizada">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Labor Realizada"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                       FontSize="Title"/>
+            </StackLayout>
+            <!--Body-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label x:Name="fechaContent"/>
+                <Label x:Name="descripcionLabel"/>
+                <Label x:Name="observacionesLabel"/>
+                <Label Text="Lista de Insumos" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
+                <ListView x:Name="myListView" ItemSelected="OnListViewItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Nombre}"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
