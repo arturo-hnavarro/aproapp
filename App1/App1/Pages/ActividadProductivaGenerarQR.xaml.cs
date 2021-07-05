@@ -58,7 +58,6 @@ namespace Approagro.Pages
             var screenshot = await Screenshot.CaptureAsync();
             var stream = await screenshot.OpenReadAsync();
 
-            //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), FileTmpName);
             try
             {
                 var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), actividad.NombreActividad + ".jpg");

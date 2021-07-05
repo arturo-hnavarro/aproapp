@@ -43,7 +43,7 @@ namespace Approagro.Pages
             if (MyListView.SelectedItem != null)
             {
                 Enfermedad enfermedades= (Enfermedad)MyListView.SelectedItem;
-                await DisplayAlert("Descripción", enfermedades.Nombre, "Aceptar");
+                await DisplayAlert(enfermedades.Nombre.ToUpper(), "Observaciones: " +enfermedades.Observacion + "\nFecha: " + enfermedades.Fecha.ToString("dd/MM/yyyy"), "Aceptar");
             }
         }
 

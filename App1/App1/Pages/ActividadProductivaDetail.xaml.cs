@@ -64,7 +64,7 @@ namespace Approagro.Pages
             {
                 actividadProductiva.ProximaAplicacion = ActivityProximaActualizacion.Date;
                 await App.AproagroDB.SaveActividadProductivaAsync(actividadProductiva);
-                if(GenerateNotification())
+                if(GenerateNotification(ActivityProximaActualizacion.Date))
                     await DisplayAlert("Notificaciónes", "Alerta programada correctamente.", "Aceptar.");
             }
             catch (Exception ex)
@@ -96,13 +96,14 @@ namespace Approagro.Pages
             }
         }
 
-        private bool GenerateNotification()
+        private bool GenerateNotification(DateTime date)
         {
             try
             {
                 string title = "Fecha de mantenimiento se apróxima";
                 string message = $"Actividad: {actividadProductiva.NombreActividad}, requiere su atención.";
-                notificationManager.SendNotification(title, message, DateTime.Now.AddSeconds(10));
+                //notificationManager.SendNotification(title, message, DateTime.Now.AddSeconds(10));
+                notificationManager.SendNotification(title, message, DateTime.Parse(date.ToString()).AddDays(-1));
                 return true;
             }
             catch (Exception ex)

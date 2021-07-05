@@ -36,7 +36,7 @@ namespace Approagro.Pages
             try
             {
                 enfermedades.Add(Mapper());
-                if (await DisplayAlert("Insumo agregado", "Enfermedad agregada ¿Desea registrar otra?", "Sí", "No"))
+                if (await DisplayAlert("Enfermedad agregada", "Enfermedad agregada ¿Desea registrar otra?", "Sí", "No"))
                 {
                     CleanEntry();
                 }
@@ -59,7 +59,8 @@ namespace Approagro.Pages
             {
                 Observacion = EntryObservacion.Text,
                 Nombre = EntryNombre.Text,
-                Fk_ActividadProductiva = actividadProductiva.IdActividad
+                Fk_ActividadProductiva = actividadProductiva.IdActividad,
+                Fecha = DateTime.Now
             };
         }
         private void CleanEntry()

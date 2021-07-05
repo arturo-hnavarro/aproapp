@@ -13,7 +13,9 @@
             </StackLayout>
             <!--Body-->
             <StackLayout Margin="{StaticResource PageMargin}">
-                <Label x:Name="descripcionLabel"></Label>
+                <Label x:Name="fechaContent"/>
+                <Label x:Name="descripcionLabel"/>
+                <Label x:Name="observacionesLabel"/>
                 <Label Text="Lista de Insumos" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
                 <ListView x:Name="myListView" ItemSelected="OnListViewItemSelected">
                     <ListView.ItemTemplate>

@@ -12,5 +12,6 @@ namespace Approagro.Domain
         public int Fk_ActividadProductiva { get; set; }
         public string Nombre { get; set; }
         public string Observacion { get; set; }
+        public DateTime Fecha { get; set; }
     }
 }

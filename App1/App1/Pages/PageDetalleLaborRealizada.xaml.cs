@@ -23,7 +23,8 @@ namespace Approagro.Pages
         {
             base.OnAppearing();
             myListView.ItemsSource = labor.Insumos;
-            descripcionLabel.Text = labor.Observaciones;
+            descripcionLabel.Text = "Observaciones: " +labor.Observaciones;
+            fechaContent.Text = "Fecha: " + labor.Fecha.ToString("dd/MM/yyyy");
         }
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
