@@ -18,14 +18,11 @@
                     <Image Source="agricultor.jpg" />
                     <StackLayout Margin="{StaticResource PageMargin}">
                         <Label Text="Menú principal" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" />
-                        <Button Text="Administración"
-                Clicked="GoToSubMenuAdmin"/>
-                        <Button Text="Escanear"
-                Clicked="OnScanClick"/>
-                        <Button Text="Ver Actividades Productivas"
-                Clicked="OnSeeActivityClick"/>
-                        <Button Text="Copia de seguridad" Clicked="OnCopia">
-                        </Button>
+                        <Button Text="Administración" Clicked="GoToSubMenuAdmin"/>
+                        <Button Text="Escanear" Clicked="OnScanClick"/>
+                        <Button Text="Ver Actividades Productivas" Clicked="OnSeeActivityClick"/>
+                        <Button Text="Copia de seguridad" Clicked="OnCopia"/>
+                        <Button Text="Acerca de" Clicked="OnAbout"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

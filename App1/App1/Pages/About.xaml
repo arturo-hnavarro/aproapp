@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="clr-namespace:Approagro"
+             x:Class="Approagro.Pages.About">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Acerca de..." HorizontalTextAlignment="Center" FontSize="Title"/>
+            </StackLayout>
+            <!--Body-->
+            <ScrollView>
+                <StackLayout Margin="{StaticResource PageMargin}">
+                    <Label Text="approagro" FontSize="Subtitle" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    
+                    <Label Text="version: 1.0.0" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Desarrollada por:" Padding="5,5" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="José Arturo Hernández Navarro" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="UNIVERSIDAD ESTATAL A DISTANCIA" Margin="0,200,0,0"  FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Cartago, Costa Rica" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="PAC 2021-I" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="2021" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
