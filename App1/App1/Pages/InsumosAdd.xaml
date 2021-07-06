@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="clr-namespace:Approagro"
+             x:Class="Approagro.Pages.InsumosAdd">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Registro de insumos" HorizontalTextAlignment="Center" FontSize="Title"/>
+            </StackLayout>
+            <!--Body-->
+            <ScrollView>
+                <StackLayout VerticalOptions="CenterAndExpand" Margin="{StaticResource PageMargin}">
+                    <Label Text="Nombre" />
+                    <Entry x:Name="EntryNombre" Placeholder="Nombre del producto aplicado">
+                        <Entry.Behaviors>
+                            <behaviors:SetFocusOnEntryCompletedBehavior TargetElement="{x:Reference EntryCantidad}" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Text="Cantidad utilizada" />
+                    <Entry x:Name="EntryCantidad"  Placeholder="Cantidad aplicada"  Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behaviors:SetFocusOnEntryCompletedBehavior TargetElement="{x:Reference EntryPrecio}" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Text="Precio" />
+                    <Entry x:Name="EntryPrecio" Placeholder="Costo en colones"  Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behaviors:SetFocusOnEntryCompletedBehavior TargetElement="{x:Reference EntryObservaciones}" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Text="Observaciones" />
+                    <Entry x:Name="EntryObservaciones" Placeholder="Observaciones" />
+
+                </StackLayout>
+            </ScrollView>
+            <!--Footer-->
+            <StackLayout VerticalOptions="End" Margin="{StaticResource PageMargin}">
+                <Button Text="Agregar insumo" Clicked="AddInsumo" BackgroundColor="AliceBlue" CornerRadius="10" BorderWidth="1" BorderColor="DarkBlue"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.EnfermedadesAdd">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Registrar nueva enfermedad" HorizontalTextAlignment="Center" FontSize="Title"/>
+            </StackLayout>
+            <!--Body-->
+            <ScrollView>
+                <StackLayout VerticalOptions="CenterAndExpand" Margin="{StaticResource PageMargin}">
+                    <Label Text="Nombre" />
+                    <Entry x:Name="EntryNombre" Placeholder="Nombre de la enfermedad" />
+                    
+                    <Label Text="Observaciones" />
+                    <Entry x:Name="EntryObservacion" Placeholder="Detalles de la enfermedad" />
+
+                </StackLayout>
+            </ScrollView>
+            <!--Footer-->
+            <StackLayout Padding="40,150,50,0" VerticalOptions="End" Margin="{StaticResource PageMargin}">
+                <Button Text="Registrar" VerticalOptions="End" Clicked="RegistrarEnfermedad"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

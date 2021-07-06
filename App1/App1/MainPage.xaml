@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Approagro.MainPage">
+    <ContentPage.Content>
+
+        <StackLayout x:Name="stackLayout">
+            <!--Header-->
+            <Frame BackgroundColor="#2196F3" Padding="8" CornerRadius="0" >
+                <Label Text="Approagro, bienvenido" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+            <!--Body-->
+            <ScrollView VerticalScrollBarVisibility="Always">
+                <StackLayout>
+                    <Image Source="agricultor.jpg" />
+                    <StackLayout Margin="{StaticResource PageMargin}">
+                        <Label Text="Menú principal" HorizontalTextAlignment="Center" FontSize="Title" Padding="30,10,30,10" />
+                        <Button Text="Administración" Clicked="GoToSubMenuAdmin"/>
+                        <Button Text="Escanear" Clicked="OnScanClick"/>
+                        <Button Text="Ver Actividades Productivas" Clicked="OnSeeActivityClick"/>
+                        <Button Text="Copia de seguridad" Clicked="OnCopia"/>
+                        <Button Text="Acerca de" Clicked="OnAbout"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

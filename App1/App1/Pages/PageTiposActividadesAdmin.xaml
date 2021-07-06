@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.PageTiposActividadesAdmin">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Tipos de actividades productivas" FontSize="Title"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+
+                <Label FontSize="Subtitle" Padding="5,5" HorizontalTextAlignment="Start"> 
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Se refieren al sector agropecuario al que pertenece la labor que realiza el afiliado."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label HorizontalTextAlignment="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Puede definir los tipos de actividades como agricultura, pecuaria, cultivo de hortalizas, plantaciones frutales, ganadería, entre otros ejemplos."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            <!--Body-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+            <Button Text="Agregar tipo de actividad productiva"
+                Clicked="OnAddTipoActivityClick"/>
+            <Button Text="Ver tipos de actividad productiva"
+                Clicked="OnShowTipoActivityClick"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

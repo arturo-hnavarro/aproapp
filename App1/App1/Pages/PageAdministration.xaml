@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Approagro.Pages.PageAdministration">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Header-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Label Text="Menú de administración" HorizontalOptions="CenterAndExpand" FontSize="Large" Padding="30,10,30,10" />
+            </StackLayout>
+            <!--Body-->
+            <StackLayout Margin="{StaticResource PageMargin}">
+                <Button Text="Tipos de actividad productiva"
+                Clicked="OnAdministrarTiposActividades"/>
+
+                <Button Text="Actividades productiva"
+                Clicked="OnAdministrarActividadesProductivas"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
